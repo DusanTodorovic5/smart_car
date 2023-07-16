@@ -65,16 +65,16 @@ void Error_Handler(void);
 #define motor_relay_GPIO_Port GPIOC
 #define direction_relay_Pin GPIO_PIN_1
 #define direction_relay_GPIO_Port GPIOC
-#define front_sensor_input_Pin GPIO_PIN_2
-#define front_sensor_input_GPIO_Port GPIOC
+#define front_input_sensor_Pin GPIO_PIN_2
+#define front_input_sensor_GPIO_Port GPIOC
 #define front_sensor_output_Pin GPIO_PIN_3
 #define front_sensor_output_GPIO_Port GPIOC
+#define light_sensor_Pin GPIO_PIN_3
+#define light_sensor_GPIO_Port GPIOA
 #define back_sensor_output_Pin GPIO_PIN_4
 #define back_sensor_output_GPIO_Port GPIOA
 #define lights_Pin GPIO_PIN_5
 #define lights_GPIO_Port GPIOA
-#define motor_pwm_Pin GPIO_PIN_6
-#define motor_pwm_GPIO_Port GPIOA
 #define stop_lights_Pin GPIO_PIN_7
 #define stop_lights_GPIO_Port GPIOA
 #define right_dir_light_Pin GPIO_PIN_0
@@ -83,8 +83,8 @@ void Error_Handler(void);
 #define back_sensor_input_GPIO_Port GPIOB
 #define direction_pwm_Pin GPIO_PIN_9
 #define direction_pwm_GPIO_Port GPIOE
-#define light_sensor_Pin GPIO_PIN_9
-#define light_sensor_GPIO_Port GPIOB
+#define motor_pwm_Pin GPIO_PIN_6
+#define motor_pwm_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 
