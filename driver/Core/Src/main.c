@@ -22,6 +22,8 @@
 #include "string.h"
 
 #define LIGHT_SENSOR_TRESHOLD 120
+/*2.8*0.0343/2*/
+#define SPEED_OF_SOUND 0.04802
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -83,6 +85,81 @@ uint8_t light_sensor_check() {
 
   return val < LIGHT_SENSOR_TRESHOLD;
 }
+
+void usDelay(uint32_t sec) {
+  if (sec < 2) {
+    sec = 2;
+  }
+
+  TIM5->ARR = sec - 1;
+  TIM5->EGR = 1;
+  TIM5->SR &= ~1;
+  TIM5->CR1 |= 1;
+  while ((TIM5->SR & 0x0001) != 1);
+  TIM5->SR &= ~(0x0001);
+}
+
+float front_distance_check_sensor() {
+    static int numTicks;
+    static float distance;
+    numTicks = 0;
+
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_RESET);
+    usDelay(3);
+
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_SET);
+    usDelay(10);
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(front_input_sensor_GPIO_Port, front_input_sensor_Pin) == GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(front_input_sensor_GPIO_Port, front_input_sensor_Pin) == GPIO_PIN_SET) {
+      ++numTicks;
+      usDelay(2);
+    }
+
+    // sleep_duration = sleep_scaled(numTicks);
+
+    distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
+		
+		//5. Print to UART terminal for debugging
+		sprintf(uartBuf, "Front Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+    return distance;
+}
+
+float rear_distance_check_sensor() {
+    static int numTicks;
+    static float distance;
+    numTicks = 0;
+
+    
+  HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_RESET);
+    usDelay(3);
+
+    HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_SET);
+    usDelay(10);
+    HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(back_sensor_input_GPIO_Port, back_sensor_input_Pin) == GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(back_sensor_input_GPIO_Port, back_sensor_input_Pin) == GPIO_PIN_SET) {
+      ++numTicks;
+      usDelay(2);
+    }
+
+    // sleep_duration = sleep_scaled(numTicks);
+
+    distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
+		
+		//5. Print to UART terminal for debugging
+		sprintf(uartBuf, "Rear Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+    return distance;
+}
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -130,6 +207,9 @@ int main(void)
     } else {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
     }
+
+    front_distance_check_sensor();
+    rear_distance_check_sensor();
   }
   
 }
