@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_joystick/flutter_joystick.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -43,7 +44,7 @@ class _LandingPageState extends State<LandingPage> {
       drawer: createDrawer(),
       body: Center(
           child: Column(
-        // mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Row(
@@ -65,6 +66,27 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   IconButton(
                     icon: Icon(
+                      Icons.compare_arrows,
+                      color: all_turn_signal ? Colors.amber : Colors.black,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        all_turn_signal = !all_turn_signal;
+                      });
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      automatic_lights ? Icons.lightbulb : Icons.ac_unit,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        automatic_lights = !automatic_lights;
+                      });
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(
                       Icons.arrow_circle_right_outlined,
                       color: right_turn_signal ? Colors.amber : Colors.black,
                     ),
@@ -78,28 +100,29 @@ class _LandingPageState extends State<LandingPage> {
               )
             ],
           ),
-          IconButton(
-            icon: Icon(
-              Icons.compare_arrows,
-              color: all_turn_signal ? Colors.amber : Colors.black,
-            ),
-            onPressed: () {
-              setState(() {
-                all_turn_signal = !all_turn_signal;
-              });
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Transform.scale(
+                scale: 0.75,
+                child: Joystick(
+                  mode: JoystickMode.horizontal,
+                  listener: (details) {
+                    print("X: ${details.x}    Y: ${details.y}");
+                  },
+                ),
+              ),
+              Transform.scale(
+                scale: 0.75,
+                child: Joystick(
+                  mode: JoystickMode.vertical,
+                  listener: (details) {
+                    print("X: ${details.x}    Y: ${details.y}");
+                  },
+                ),
+              ),
+            ],
           ),
-          IconButton(
-            icon: Icon(
-              automatic_lights ? Icons.lightbulb : Icons.ac_unit,
-            ),
-            onPressed: () {
-              setState(() {
-                automatic_lights = !automatic_lights;
-              });
-            },
-          ),
-          Row(),
         ],
       )),
     );
