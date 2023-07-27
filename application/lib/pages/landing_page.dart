@@ -1,9 +1,13 @@
+import 'dart:ffi';
+
+import 'package:application/classes/websocket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
+import 'dart:async';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key});
+  LandingPage({super.key});
 
   final String title = "Landing page";
 
@@ -14,17 +18,78 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   bool automatic_lights = true;
   bool auto_mode = true;
+
   bool left_turn_signal = false;
   bool right_turn_signal = false;
   bool all_turn_signal = false;
 
+  Color left_turn_signal_color = Colors.amber;
+  Color right_turn_signal_color = Colors.amber;
+
+  late Timer leftSignalTimer, rightSignalTimer, dirTimer;
+  late WebSocket webSocket;
+
+  double xDir = 0.0;
+  double lastXDir = 0.0;
+
+  double yDir = 0.0;
+  double lastYDir = 0.0;
+
   @override
   void initState() {
     super.initState();
+    webSocket = WebSocket(onMessage: onMessage);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]);
+
+    leftSignalTimer = Timer.periodic(
+      const Duration(milliseconds: 600),
+      (timer) {
+        if (left_turn_signal || all_turn_signal) {
+          setState(() {
+            if (left_turn_signal_color == Colors.amber) {
+              left_turn_signal_color = Colors.white;
+            } else {
+              left_turn_signal_color = Colors.amber;
+            }
+          });
+        }
+      },
+    );
+
+    rightSignalTimer = Timer.periodic(
+      const Duration(milliseconds: 600),
+      (timer) {
+        if (right_turn_signal || all_turn_signal) {
+          setState(() {
+            if (right_turn_signal_color == Colors.amber) {
+              right_turn_signal_color = Colors.white;
+            } else {
+              right_turn_signal_color = Colors.amber;
+            }
+          });
+        }
+      },
+    );
+
+    dirTimer = Timer.periodic(
+      const Duration(milliseconds: 60),
+      (timer) {
+        if (xDir != lastXDir) {
+          print("xDir = ${xDir}");
+          lastXDir = xDir;
+          changeDirectionX();
+        }
+
+        if (yDir != lastYDir) {
+          print("yDir = ${yDir}");
+          lastYDir = yDir;
+          changeDirectionY();
+        }
+      },
+    );
   }
 
   final MaterialStateProperty<Icon?> thumbIcon =
@@ -53,12 +118,21 @@ class _LandingPageState extends State<LandingPage> {
               IconButton(
                 icon: Icon(
                   Icons.arrow_circle_left_outlined,
-                  color: left_turn_signal ? Colors.amber : Colors.black,
+                  color: left_turn_signal || all_turn_signal
+                      ? left_turn_signal_color
+                      : Colors.black,
                 ),
                 onPressed: () {
                   setState(() {
-                    left_turn_signal = !left_turn_signal;
+                    if (left_turn_signal && !all_turn_signal) {
+                      left_turn_signal = false;
+                    } else {
+                      left_turn_signal = true;
+                      all_turn_signal = false;
+                      right_turn_signal = false;
+                    }
                   });
+                  sendLights();
                 },
               ),
               Row(
@@ -71,8 +145,17 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        all_turn_signal = !all_turn_signal;
+                        if (all_turn_signal) {
+                          all_turn_signal = false;
+                          left_turn_signal = false;
+                          right_turn_signal = false;
+                        } else {
+                          all_turn_signal = true;
+                          left_turn_signal = true;
+                          right_turn_signal = true;
+                        }
                       });
+                      sendLights();
                     },
                   ),
                   IconButton(
@@ -83,17 +166,27 @@ class _LandingPageState extends State<LandingPage> {
                       setState(() {
                         automatic_lights = !automatic_lights;
                       });
+                      sendLights();
                     },
                   ),
                   IconButton(
                     icon: Icon(
                       Icons.arrow_circle_right_outlined,
-                      color: right_turn_signal ? Colors.amber : Colors.black,
+                      color: right_turn_signal || all_turn_signal
+                          ? right_turn_signal_color
+                          : Colors.black,
                     ),
                     onPressed: () {
                       setState(() {
-                        right_turn_signal = !right_turn_signal;
+                        if (right_turn_signal && !all_turn_signal) {
+                          right_turn_signal = false;
+                        } else {
+                          left_turn_signal = false;
+                          all_turn_signal = false;
+                          right_turn_signal = true;
+                        }
                       });
+                      sendLights();
                     },
                   ),
                 ],
@@ -108,7 +201,8 @@ class _LandingPageState extends State<LandingPage> {
                 child: Joystick(
                   mode: JoystickMode.horizontal,
                   listener: (details) {
-                    print("X: ${details.x}    Y: ${details.y}");
+                    print("X: ${details.x}");
+                    xDir = details.x;
                   },
                 ),
               ),
@@ -117,7 +211,8 @@ class _LandingPageState extends State<LandingPage> {
                 child: Joystick(
                   mode: JoystickMode.vertical,
                   listener: (details) {
-                    print("X: ${details.x}    Y: ${details.y}");
+                    print("Y: ${details.y}");
+                    yDir = details.y;
                   },
                 ),
               ),
@@ -190,7 +285,49 @@ class _LandingPageState extends State<LandingPage> {
                 // ...
               },
             ),
+            ListTile(
+              title: const Row(
+                children: [
+                  Icon(Icons.connect_without_contact),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('Reconnect'),
+                ],
+              ),
+              onTap: () {
+                webSocket.channel.sink.close();
+                webSocket = WebSocket(onMessage: onMessage);
+              },
+            ),
           ],
         ),
       );
+
+  void onMessage(message) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(message),
+      ));
+
+  void sendLights() {
+    webSocket.sendMessage({
+      "type": 5,
+      "left_dir_light": left_turn_signal,
+      "right_dir_light": right_turn_signal,
+      "front_light": false,
+      "auto_lights": automatic_lights
+    }.toString());
+  }
+
+  void changeDirectionX() {
+    webSocket.sendMessage(
+      {"type": 4, "direction": xDir}.toString(),
+    );
+  }
+
+  void changeDirectionY() {
+    webSocket.sendMessage(
+      {"type": 3, "intensity": yDir}.toString(),
+    );
+  }
 }
