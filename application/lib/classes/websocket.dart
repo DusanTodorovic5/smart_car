@@ -4,14 +4,14 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import '../pages/landing_page.dart';
 
 class WebSocket {
-  final channel = WebSocketChannel.connect(
-    Uri.parse('ws://localhost:8765'),
-  );
+  late WebSocketChannel channel;
   final Function onMessage;
-
-  WebSocket({required this.onMessage}) {
+  final String uri;
+  WebSocket({required this.uri, required this.onMessage}) {
+    channel = WebSocketChannel.connect(
+      Uri.parse(uri),
+    );
     channel.stream.listen((message) => onMessage(message));
-    sendMessage("slavica");
   }
 
   void sendMessage(String message) {

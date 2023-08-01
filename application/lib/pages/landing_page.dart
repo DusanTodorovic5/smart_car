@@ -1,10 +1,10 @@
-import 'dart:ffi';
-
 import 'package:application/classes/websocket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'dart:async';
+
+import 'package:video_player/video_player.dart';
 
 class LandingPage extends StatefulWidget {
   LandingPage({super.key});
@@ -35,10 +35,27 @@ class _LandingPageState extends State<LandingPage> {
   double yDir = 0.0;
   double lastYDir = 0.0;
 
+  late VideoPlayerController _controller;
+
   @override
   void initState() {
     super.initState();
-    webSocket = WebSocket(onMessage: onMessage);
+    webSocket = WebSocket(
+      uri: "ws://192.168.0.15:1234",
+      onMessage: onMessage,
+    );
+
+    _controller = VideoPlayerController.networkUrl(
+      Uri.parse(
+        'http://192.168.0.15',
+      ),
+    )..initialize().then(
+        (_) {
+          // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+          setState(() {});
+        },
+      );
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -107,119 +124,124 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       appBar: createAppBar(),
       drawer: createDrawer(),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+      body: Stack(
         children: [
-          Row(
+          VideoPlayer(_controller),
+          Center(
+              child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_circle_left_outlined,
-                  color: left_turn_signal || all_turn_signal
-                      ? left_turn_signal_color
-                      : Colors.black,
-                ),
-                onPressed: () {
-                  setState(() {
-                    if (left_turn_signal && !all_turn_signal) {
-                      left_turn_signal = false;
-                    } else {
-                      left_turn_signal = true;
-                      all_turn_signal = false;
-                      right_turn_signal = false;
-                    }
-                  });
-                  sendLights();
-                },
-              ),
               Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: Icon(
-                      Icons.compare_arrows,
-                      color: all_turn_signal ? Colors.amber : Colors.black,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        if (all_turn_signal) {
-                          all_turn_signal = false;
-                          left_turn_signal = false;
-                          right_turn_signal = false;
-                        } else {
-                          all_turn_signal = true;
-                          left_turn_signal = true;
-                          right_turn_signal = true;
-                        }
-                      });
-                      sendLights();
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      automatic_lights ? Icons.lightbulb : Icons.ac_unit,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        automatic_lights = !automatic_lights;
-                      });
-                      sendLights();
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_circle_right_outlined,
-                      color: right_turn_signal || all_turn_signal
-                          ? right_turn_signal_color
+                      Icons.arrow_circle_left_outlined,
+                      color: left_turn_signal || all_turn_signal
+                          ? left_turn_signal_color
                           : Colors.black,
                     ),
                     onPressed: () {
                       setState(() {
-                        if (right_turn_signal && !all_turn_signal) {
-                          right_turn_signal = false;
-                        } else {
+                        if (left_turn_signal && !all_turn_signal) {
                           left_turn_signal = false;
+                        } else {
+                          left_turn_signal = true;
                           all_turn_signal = false;
-                          right_turn_signal = true;
+                          right_turn_signal = false;
                         }
                       });
                       sendLights();
                     },
                   ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.compare_arrows,
+                          color: all_turn_signal ? Colors.amber : Colors.black,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if (all_turn_signal) {
+                              all_turn_signal = false;
+                              left_turn_signal = false;
+                              right_turn_signal = false;
+                            } else {
+                              all_turn_signal = true;
+                              left_turn_signal = true;
+                              right_turn_signal = true;
+                            }
+                          });
+                          sendLights();
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          automatic_lights ? Icons.lightbulb : Icons.ac_unit,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            automatic_lights = !automatic_lights;
+                          });
+                          sendLights();
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_circle_right_outlined,
+                          color: right_turn_signal || all_turn_signal
+                              ? right_turn_signal_color
+                              : Colors.black,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if (right_turn_signal && !all_turn_signal) {
+                              right_turn_signal = false;
+                            } else {
+                              left_turn_signal = false;
+                              all_turn_signal = false;
+                              right_turn_signal = true;
+                            }
+                          });
+                          sendLights();
+                        },
+                      ),
+                    ],
+                  )
                 ],
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Transform.scale(
-                scale: 0.75,
-                child: Joystick(
-                  mode: JoystickMode.horizontal,
-                  listener: (details) {
-                    print("X: ${details.x}");
-                    xDir = details.x;
-                  },
-                ),
               ),
-              Transform.scale(
-                scale: 0.75,
-                child: Joystick(
-                  mode: JoystickMode.vertical,
-                  listener: (details) {
-                    print("Y: ${details.y}");
-                    yDir = details.y;
-                  },
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Transform.scale(
+                    scale: 0.75,
+                    child: Joystick(
+                      mode: JoystickMode.horizontal,
+                      listener: (details) {
+                        print("X: ${details.x}");
+                        xDir = details.x;
+                      },
+                    ),
+                  ),
+                  Transform.scale(
+                    scale: 0.75,
+                    child: Joystick(
+                      mode: JoystickMode.vertical,
+                      listener: (details) {
+                        print("Y: ${details.y}");
+                        yDir = details.y;
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
-          ),
+          )),
         ],
-      )),
+      ),
     );
   }
 
@@ -297,7 +319,10 @@ class _LandingPageState extends State<LandingPage> {
               ),
               onTap: () {
                 webSocket.channel.sink.close();
-                webSocket = WebSocket(onMessage: onMessage);
+                webSocket = WebSocket(
+                  uri: "ws://192.168.0.15:1234",
+                  onMessage: onMessage,
+                );
               },
             ),
           ],
