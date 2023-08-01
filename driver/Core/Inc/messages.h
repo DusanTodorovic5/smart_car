@@ -2,6 +2,7 @@
 #define MESSAGES_HEADER
 
 #include <stdio.h>
+#include <stdint.h>
 
 /*
     0 - state update
