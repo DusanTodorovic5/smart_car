@@ -65,11 +65,14 @@ class _LightsWidgetState extends State<LightsWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          icon: Icon(
-            Icons.arrow_circle_left_outlined,
-            color: left_turn_signal || all_turn_signal
-                ? left_turn_signal_color
-                : Colors.black,
+          icon: CircleAvatar(
+            backgroundColor: const Color.fromARGB(99, 255, 255, 255),
+            child: Icon(
+              Icons.arrow_circle_left_outlined,
+              color: left_turn_signal || all_turn_signal
+                  ? left_turn_signal_color
+                  : Colors.black,
+            ),
           ),
           onPressed: () {
             setState(() {
@@ -88,9 +91,12 @@ class _LightsWidgetState extends State<LightsWidget> {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              icon: Icon(
-                Icons.compare_arrows,
-                color: all_turn_signal ? Colors.amber : Colors.black,
+              icon: CircleAvatar(
+                backgroundColor: const Color.fromARGB(50, 255, 255, 255),
+                child: Icon(
+                  Icons.compare_arrows,
+                  color: all_turn_signal ? Colors.amber : Colors.black,
+                ),
               ),
               onPressed: () {
                 setState(() {
@@ -108,8 +114,11 @@ class _LightsWidgetState extends State<LightsWidget> {
               },
             ),
             IconButton(
-              icon: Icon(
-                automatic_lights ? Icons.lightbulb : Icons.ac_unit,
+              icon: CircleAvatar(
+                backgroundColor: const Color.fromARGB(50, 255, 255, 255),
+                child: Icon(
+                  automatic_lights ? Icons.lightbulb : Icons.ac_unit,
+                ),
               ),
               onPressed: () {
                 setState(() {
@@ -119,11 +128,14 @@ class _LightsWidgetState extends State<LightsWidget> {
               },
             ),
             IconButton(
-              icon: Icon(
-                Icons.arrow_circle_right_outlined,
-                color: right_turn_signal || all_turn_signal
-                    ? right_turn_signal_color
-                    : Colors.black,
+              icon: CircleAvatar(
+                backgroundColor: const Color.fromARGB(50, 255, 255, 255),
+                child: Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: right_turn_signal || all_turn_signal
+                      ? right_turn_signal_color
+                      : Colors.black,
+                ),
               ),
               onPressed: () {
                 setState(() {

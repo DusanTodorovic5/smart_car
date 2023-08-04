@@ -124,6 +124,7 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   AppBar createAppBar() => AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
         actions: [
           Column(
@@ -149,7 +150,6 @@ class _LandingPageState extends State<LandingPage> {
 
   Drawer createDrawer() => Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             SizedBox(
@@ -225,7 +225,7 @@ class _LandingPageState extends State<LandingPage> {
     webSocket.sendMessage(
       {
         "type": 1,
-        "intensity": convertToSTPercentage(yDir),
+        "voltage": convertToSTPercentage(yDir),
       }.toString(),
     );
   }

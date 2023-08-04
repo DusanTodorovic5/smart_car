@@ -29,6 +29,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return WebViewWidget(controller: controller);
+    return AspectRatio(
+      aspectRatio: 800.0 / 600.0,
+      child: WebViewWidget(controller: controller),
+    );
   }
 }
