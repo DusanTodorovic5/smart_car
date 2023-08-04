@@ -5,7 +5,7 @@
 #include <WiFi.h>
 #include <WiFiServer.h>
 #include <WiFiClient.h>
-#include <ArduinoJson.h>
+#include "json_messages.h"
 #include <WebSocketsServer.h>
 #include "fb_gfx.h"
 #include "esp_timer.h"
@@ -43,6 +43,24 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
         case WStype_TEXT:
             Serial.printf("[%u] get Text: %s\n", num, payload);
 
+            switch (new_message((char*)payload)) {
+              case 1: 
+                Serial.printf("Recv [%u] with voltage [%u]", voltage_message.message_type, voltage_message.voltage);
+                break;
+              case 2: 
+                Serial.printf("Recv [%u] with direction [%u]", direction_message.message_type, direction_message.direction);
+                break;
+              case 3: 
+                Serial.printf("Recv [%u] with values [%u],[%u],[%u],[%u]", 
+                              led_message.message_type, 
+                              led_message.left_dir_light,
+                              led_message.right_dir_light,
+                              led_message.front_light,
+                              led_message.auto_lights
+                            );
+                break;
+            }
+            
             // send message to client
             // webSocket.sendTXT(num, "message here");
 
@@ -173,7 +191,7 @@ void setup() {
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
   config.xclk_freq_hz = 20000000;
-  config.frame_size = FRAMESIZE_HD;
+  config.frame_size = FRAMESIZE_SVGA;
   config.pixel_format = PIXFORMAT_JPEG; // for streaming
   //config.pixel_format = PIXFORMAT_RGB565; // for face detection/recognition
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
@@ -197,8 +215,8 @@ void setup() {
   // initial sensors are flipped vertically and colors are a bit saturated
   if (s->id.PID == OV3660_PID) {
     s->set_vflip(s, 1); // flip it back
-    s->set_brightness(s, 1); // up the brightness just a bit
-    s->set_saturation(s, -2); // lower the saturation
+    s->set_brightness(s, 2); // up the brightness just a bit
+    s->set_saturation(s, 0); // lower the saturation
   }
 
 #if defined(CAMERA_MODEL_M5STACK_WIDE) || defined(CAMERA_MODEL_M5STACK_ESP32CAM)
