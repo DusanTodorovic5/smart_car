@@ -146,7 +146,7 @@ class _LightsWidgetState extends State<LightsWidget> {
 
   void sendLights() {
     widget.webSocket.sendMessage({
-      "type": 5,
+      "type": 3,
       "left_dir_light": left_turn_signal,
       "right_dir_light": right_turn_signal,
       "front_light": false,

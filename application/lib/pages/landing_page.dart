@@ -214,13 +214,29 @@ class _LandingPageState extends State<LandingPage> {
 
   void changeDirectionX() {
     webSocket.sendMessage(
-      {"type": 4, "direction": xDir}.toString(),
+      {
+        "type": 2,
+        "direction": convertToSTPercentage(xDir),
+      }.toString(),
     );
   }
 
   void changeDirectionY() {
     webSocket.sendMessage(
-      {"type": 3, "intensity": yDir}.toString(),
+      {
+        "type": 1,
+        "intensity": convertToSTPercentage(yDir),
+      }.toString(),
     );
+  }
+
+  int convertToSTPercentage(double percentage) {
+    int newValue = (percentage * 100).toInt();
+
+    if (newValue < 0) {
+      newValue = 255 + newValue;
+    }
+
+    return newValue;
   }
 }
