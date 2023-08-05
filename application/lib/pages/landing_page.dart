@@ -1,6 +1,7 @@
 import 'package:application/classes/websocket.dart';
 import 'package:application/widgets/lights_widget.dart';
 import 'package:application/widgets/video_player.dart';
+import 'package:application/widgets/wifi_connect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
@@ -166,25 +167,29 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) {
+                      return WifiDialog();
+                    });
               },
             ),
-            ListTile(
-              title: const Row(
-                children: [
-                  Icon(Icons.gamepad),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text('Controls'),
-                ],
-              ),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
-            ),
+            // ListTile(
+            //   title: const Row(
+            //     children: [
+            //       Icon(Icons.gamepad),
+            //       SizedBox(
+            //         width: 5,
+            //       ),
+            //       Text('Controls'),
+            //     ],
+            //   ),
+            //   onTap: () {
+            //     // Update the state of the app.
+            //     // ...
+            //   },
+            // ),
             ListTile(
               title: const Row(
                 children: [
@@ -192,7 +197,7 @@ class _LandingPageState extends State<LandingPage> {
                   SizedBox(
                     width: 5,
                   ),
-                  Text('Reconnect'),
+                  Text('Reconnect to ESP'),
                 ],
               ),
               onTap: () {

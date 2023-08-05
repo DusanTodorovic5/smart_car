@@ -14,6 +14,7 @@ dependencies:
   flutter_joystick: ^0.0.3
   web_socket_channel: ^2.4.0
   webview_flutter: 4.2.2
+  flutter_bluetooth_serial: ^0.4.0
 
 dev_dependencies:
   flutter_test:
