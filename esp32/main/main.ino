@@ -74,7 +74,7 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
 
 void setup() {
   Serial.begin(115200);
-  SerialBT.begin("ESP32");
+  // SerialBT.begin("ESP32");
   delay(1000);
   state = READY;
 }
