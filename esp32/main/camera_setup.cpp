@@ -42,7 +42,7 @@ esp_err_t stream_handler(httpd_req_t *req){
   while(true){
     fb = esp_camera_fb_get();
     if (!fb) {
-      Serial.println("Camera capture failed");
+      // Serial.println("Camera capture failed");
       res = ESP_FAIL;
     } else {
       _timestamp.tv_sec = fb->timestamp.tv_sec;
@@ -55,7 +55,7 @@ esp_err_t stream_handler(httpd_req_t *req){
         fb = NULL;
 
         if(!jpeg_converted){
-          Serial.println("JPEG compression failed");
+          // Serial.println("JPEG compression failed");
           res = ESP_FAIL;
         }
       } else {
@@ -89,7 +89,7 @@ esp_err_t stream_handler(httpd_req_t *req){
       _jpg_buf = NULL;
     }
     if(res != ESP_OK){
-      Serial.printf("ERROR: %d\n\n", res);
+      // Serial.printf("ERROR: %d\n\n", res);
       break;
     }
     //Serial.printf("MJPG: %uB\n",(uint32_t)(_jpg_buf_len));
@@ -150,7 +150,7 @@ void initCamera() {
   config.fb_count = 1;
 
 #if defined(CAMERA_MODEL_ESP_EYE)
-Serial.println("ESP EYE");
+// Serial.println("ESP EYE");
   pinMode(13, INPUT_PULLUP);
   pinMode(14, INPUT_PULLUP);
 #endif
@@ -158,7 +158,7 @@ Serial.println("ESP EYE");
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
+    // Serial.printf("Camera init failed with error 0x%x", err);
     return;
   }
 
@@ -171,13 +171,13 @@ Serial.println("ESP EYE");
   }
 
 #if defined(CAMERA_MODEL_M5STACK_WIDE) || defined(CAMERA_MODEL_M5STACK_ESP32CAM)
-Serial.println("MSTACK");
+// Serial.println("MSTACK");
   s->set_vflip(s, 1);
   s->set_hmirror(s, 1);
 #endif
 
 #if defined(CAMERA_MODEL_ESP32S3_EYE)
-Serial.println("ESP EYE 32");
+// Serial.println("ESP EYE 32");
   s->set_vflip(s, 1);
 #endif
 
