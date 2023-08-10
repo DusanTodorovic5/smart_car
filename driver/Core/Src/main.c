@@ -20,6 +20,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "string.h"
+#include "messages.h"
 
 #define LIGHT_SENSOR_TRESHOLD 120
 /*2.8*0.0343/2*/
@@ -73,6 +74,8 @@ static void MX_UART4_Init(void);
 /* USER CODE BEGIN 0 */
 char uartBuf[100];
 
+char rcvBuf[100];
+
 /* USER CODE END 0 */
 uint8_t light_sensor_check() {
   HAL_ADC_Start(&hadc1);
@@ -80,8 +83,8 @@ uint8_t light_sensor_check() {
 
   uint32_t val = HAL_ADC_GetValue(&hadc1);
 
-  sprintf(uartBuf, "Analog value  = %d \r\n", (int)val);
-  HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+  // sprintf(uartBuf, "Analog value  = %d \r\n", (int)val);
+  // HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
   return val < LIGHT_SENSOR_TRESHOLD;
 }
@@ -123,8 +126,8 @@ float front_distance_check_sensor() {
     distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
 		
 		//5. Print to UART terminal for debugging
-		sprintf(uartBuf, "Front Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
-		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+		// sprintf(uartBuf, "Front Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
     return distance;
 }
@@ -154,8 +157,8 @@ float rear_distance_check_sensor() {
     distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
 		
 		//5. Print to UART terminal for debugging
-		sprintf(uartBuf, "Rear Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
-		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+		// sprintf(uartBuf, "Rear Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
     return distance;
 }
@@ -166,6 +169,7 @@ float rear_distance_check_sensor() {
   */
 int main(void)
 {
+  memset(rcvBuf, 0, 100 * sizeof(char));
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -200,16 +204,94 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  // // Engine
+  // HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 624);
+  // // Direction
+  // // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  // // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 625);
+
+  uint8_t auto_lights = 0;
+
   while (1)
   {
-    if (light_sensor_check()) {
+    HAL_UART_Receive(&huart4, rcvBuf, 1, 50);
+
+    switch (((uint8_t)(rcvBuf[0])))
+    {
+    case 1:
+    {
+      /* voltage_engine_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(voltage_engine_message) - 1, 50);
+      voltage_engine_message* msg = (voltage_engine_message *) rcvBuf;
+
+      sprintf(uartBuf, "TYPE 1 = %d\r\n",
+                msg->voltage);
+		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+      if (msg->voltage > 100) {
+        HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_SET);
+        msg->voltage = 255 - msg->voltage;
+      } else {
+        HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_RESET);
+      }
+
+      int voltage = (625 / 100) * msg->voltage;
+      __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, voltage);
+
+    }
+      break;
+    case 2:
+    {
+      /* direction_change_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(direction_change_message) - 1, 50);
+      direction_change_message* msg = (direction_change_message *) rcvBuf;
+
+      sprintf(uartBuf, "TYPE 2 = %d\r\n",
+                msg->direction);
+		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+
+      if (msg->direction > 100) {
+        HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_SET);
+        msg->direction = 255 - msg->direction;
+      } else {
+        HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_RESET);
+      }
+
+      int voltage = (625 / 100) * msg->direction;
+      __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, voltage);
+    }
+      break;
+    case 3:
+    {
+      /* led_change_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(led_change_message) - 1, 50);
+      led_change_message* msg = (led_change_message *) rcvBuf;
+
+      sprintf(uartBuf, "TYPE 3 = %d, %d, %d, %d \r\n",
+                msg->auto_lights,
+                msg->front_light,
+                msg->left_dir_light,
+                msg->right_dir_light);
+		HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+      HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, msg->left_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, msg->right_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      auto_lights = msg->auto_lights ? 1 : 0;
+    }
+      break;
+    }
+
+    if (auto_lights && light_sensor_check()) {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
     } else {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
     }
 
-    front_distance_check_sensor();
-    rear_distance_check_sensor();
+    // front_distance_check_sensor();
+    // rear_distance_check_sensor();
   }
   
 }
