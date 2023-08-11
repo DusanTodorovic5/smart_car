@@ -83,7 +83,7 @@ void Error_Handler(void);
 #define back_sensor_input_GPIO_Port GPIOB
 #define direction_pwm_Pin GPIO_PIN_9
 #define direction_pwm_GPIO_Port GPIOE
-#define motor_pwm_Pin GPIO_PIN_6
+#define motor_pwm_Pin GPIO_PIN_9
 #define motor_pwm_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
