@@ -77,7 +77,6 @@ char uartBuf[100];
 
 char rcvBuf[100];
 
-/* USER CODE END 0 */
 uint8_t light_sensor_check() {
   HAL_ADC_Start(&hadc1);
   HAL_ADC_PollForConversion(&hadc1, 1);
@@ -164,6 +163,32 @@ float rear_distance_check_sensor() {
     return distance;
 }
 
+void forward(int x) {
+  // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 0);
+  HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_RESET);
+  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
+}
+
+void backward(int x) {
+  // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 0);
+  HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_SET);
+  __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
+}
+
+left(int x) {
+  // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+  HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_RESET);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
+}
+
+right(int x) {
+  // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+  HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_SET);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
+}
+
+/* USER CODE END 0 */
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -171,25 +196,10 @@ float rear_distance_check_sensor() {
 int main(void)
 {
   memset(rcvBuf, 0, 100 * sizeof(char));
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
-  /* MCU Configuration--------------------------------------------------------*/
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
@@ -198,34 +208,55 @@ int main(void)
   MX_TIM5_Init();
   MX_ADC1_Init();
   MX_UART4_Init();
-  /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
 
   // Engine
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
   // Direction
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 625);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 
   uint8_t auto_lights = 0;
+  uint8_t right_direction_lights = 0;
+  uint8_t left_direction_lights = 0;
 
   int x;
   while (1)
   {
-    HAL_GPIO_TogglePin(motor_relay_GPIO_Port, motor_relay_Pin);
-    for (x=0; x< 625; x++) {
-      __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
-      HAL_Delay(6);
-    }
+    left(625);
+    forward(350);
+    HAL_Delay(2000);
+    forward(625);
+    right(625);
+    HAL_Delay(2000);
+    forward(450);
+    HAL_Delay(2000);
+    forward(0);
+    left(625);
+    HAL_Delay(2000);
+    forward(625);
+    HAL_Delay(2000);
+    forward(0);
+    left(0);
 
-    for (x = 625; x > 0; x--) {
-       __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
-      HAL_Delay(6);
-    }
+    HAL_Delay(3000);
+
+    backward(350);
+    left(625);
+    HAL_Delay(2000);
+    backward(625);
+    HAL_Delay(2000);
+    backward(450);
+    right(625);
+    HAL_Delay(2000);
+    backward(0);
+    HAL_Delay(2000);
+    backward(625);
+    HAL_Delay(2000);
+    backward(0);
+    left(0);
+
+    HAL_Delay(3000);
+    
     // HAL_UART_Receive(&huart4, rcvBuf, 1, 50);
 
     // switch (((uint8_t)(rcvBuf[0])))
@@ -295,11 +326,23 @@ int main(void)
     //   break;
     // }
 
+    // auto_lights = 1;
     // if (auto_lights && light_sensor_check()) {
     //   HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
     // } else {
     //   HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
     // }
+
+    // right_direction_lights = 1;
+    // left_direction_lights = 1;
+    // if (right_direction_lights && left_direction_lights) {
+    //   HAL_GPIO_TogglePin(right_dir_light_GPIO_Port, right_dir_light_Pin);
+    //   HAL_GPIO_TogglePin(left_dir_light_GPIO_Port, left_dir_light_Pin);
+    //   HAL_Delay(600);
+    // }
+
+    // If voltage == 0 set stop lights 
+    // HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
 
     // front_distance_check_sensor();
     // rear_distance_check_sensor();
