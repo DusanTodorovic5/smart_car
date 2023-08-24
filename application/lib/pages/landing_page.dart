@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
   void initState() {
     super.initState();
     webSocket = WebSocket(
-      uri: "ws://192.168.0.29:1234",
+      uri: "ws://192.168.0.15:1234",
       onMessage: onMessage,
     );
 
@@ -99,7 +99,7 @@ class _LandingPageState extends State<LandingPage> {
                       child: Joystick(
                         mode: JoystickMode.horizontal,
                         listener: (details) {
-                          print("X: ${details.x}");
+                          print("### X: ${details.x}");
                           xDir = details.x;
                         },
                       ),
@@ -109,7 +109,7 @@ class _LandingPageState extends State<LandingPage> {
                       child: Joystick(
                         mode: JoystickMode.vertical,
                         listener: (details) {
-                          print("Y: ${details.y}");
+                          print("### Y: ${details.y}");
                           yDir = details.y;
                         },
                       ),
@@ -212,12 +212,13 @@ class _LandingPageState extends State<LandingPage> {
         ),
       );
 
-  void onMessage(message) =>
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(message),
-      ));
+  void onMessage(message) => print("### ${message}");
+  // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //   content: Text(message),
+  // ));
 
   void changeDirectionX() {
+    print("### xDir = ${xDir}");
     webSocket.sendMessage(
       {
         "type": 2,
@@ -227,6 +228,7 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   void changeDirectionY() {
+    print("### yDir = ${yDir}");
     webSocket.sendMessage(
       {
         "type": 1,

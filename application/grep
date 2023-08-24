@@ -1,0 +1,1947 @@
+Launching lib/main.dart on 21081111RG in debug mode...
+Running Gradle task 'assembleDebug'...                           1,845ms
+✓  Built build/app/outputs/flutter-apk/app-debug.apk.
+V/FlutterBluetoothSerial( 7834): Attached to engine
+Syncing files to device 21081111RG...                               58ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on 21081111RG is available at: http://127.0.0.1:33389/uSaEywfyGuc=/
+W/ziparchive( 7834): Unable to open '/data/app/~~EMEVeHXiEPbH3_r4HG85MQ==/com.google.android.trichromelibrary_579016633-hC1-7KmIwcp0zkgX5n5sQw==/base.dm': No such file or directory
+W/ziparchive( 7834): Unable to open '/data/app/~~EMEVeHXiEPbH3_r4HG85MQ==/com.google.android.trichromelibrary_579016633-hC1-7KmIwcp0zkgX5n5sQw==/base.dm': No such file or directory
+W/ple.application( 7834): Entry not found
+D/nativeloader( 7834): Configuring classloader-namespace for other apk /data/app/~~EMEVeHXiEPbH3_r4HG85MQ==/com.google.android.trichromelibrary_579016633-hC1-7KmIwcp0zkgX5n5sQw==/base.apk. target_sdk_version=34, uses_libraries=ALL, library_path=/data/app/~~RvJ8lgv1unXCCof6i4kKXw==/com.google.android.webview-XtitZfBp67HrnJg8OZEcGA==/lib/arm64:/data/app/~~RvJ8lgv1unXCCof6i4kKXw==/com.google.android.webview-XtitZfBp67HrnJg8OZEcGA==/base.apk!/lib/arm64-v8a:/data/app/~~EMEVeHXiEPbH3_r4HG85MQ==/com.google.android.trichromelibrary_579016633-hC1-7KmIwcp0zkgX5n5sQw==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+D/nativeloader( 7834): Extending system_exposed_libraries: libapuwareapusys.mtk.so:libapuwareapusys_v2.mtk.so:libapuwarexrp.mtk.so:libapuwarexrp_v2.mtk.so:libapuwareutils.mtk.so:libapuwareutils_v2.mtk.so:libapuwarehmp.mtk.so:libmcv_runtime_usdk.mtk.so:libneuron_graph_delegate.mtk.so:libneuronusdk_adapter.mtk.so:libtflite_mtk.mtk.so:libarmnn_ndk.mtk.so:libcmdl_ndk.mtk.so:libnir_neon_driver_ndk.mtk.so:libmvpu_runtime.mtk.so:libmvpu_runtime_pub.mtk.so:libmvpu_engine_pub.mtk.so:libmvpu_pattern_pub.mtk.so:libmvpuop_mtk_cv.mtk.so:libmvpuop_mtk_nn.mtk.so:libteeservice_client.trustonic.so:libmisys_jni.xiaomi.so
+D/nativeloader( 7834): Configuring classloader-namespace for other apk /data/app/~~RvJ8lgv1unXCCof6i4kKXw==/com.google.android.webview-XtitZfBp67HrnJg8OZEcGA==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~RvJ8lgv1unXCCof6i4kKXw==/com.google.android.webview-XtitZfBp67HrnJg8OZEcGA==/lib/arm64:/data/app/~~RvJ8lgv1unXCCof6i4kKXw==/com.google.android.webview-XtitZfBp67HrnJg8OZEcGA==/base.apk!/lib/arm64-v8a:/data/app/~~EMEVeHXiEPbH3_r4HG85MQ==/com.google.android.trichromelibrary_579016633-hC1-7KmIwcp0zkgX5n5sQw==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+I/WebViewFactory( 7834): Loading com.google.android.webview version 115.0.5790.166 (code 579016633)
+I/cr_WVCFactoryProvider( 7834): Loaded version=115.0.5790.166 minSdkVersion=29 isBundle=true multiprocess=true packageId=2
+I/cr_LibraryLoader( 7834): Successfully loaded native library
+I/cr_CachingUmaRecorder( 7834): Flushed 7 samples from 7 histograms, 0 samples were dropped.
+W/chromium( 7834): [WARNING:dns_config_service_android.cc(115)] Failed to read DnsConfig.
+D/CompatibilityChangeReporter( 7834): Compat change id reported: 214741472; UID 10426; state: ENABLED
+E/FileUtils( 7834): err write to mi_exception_log
+D/CompatibilityChangeReporter( 7834): Compat change id reported: 171228096; UID 10426; state: ENABLED
+D/libMEOW ( 7834): meow new tls: 0xb40000740a18ee80
+D/libMEOW ( 7834): applied 1 plugins for [com.example.application]:
+D/libMEOW ( 7834):   plugin 1: [libMEOW_gift.so]:
+W/cr_media( 7834): BLUETOOTH_CONNECT permission is missing.
+W/cr_media( 7834): registerBluetoothIntentsIfNeeded: Requires BLUETOOTH permission
+E/FileUtils( 7834): err open mi_exception_log errno=2
+E/FileUtils( 7834): err write to mi_exception_log
+W/AudioCapabilities( 7834): Unsupported mime audio/x-adpcm-dvi-ima
+W/AudioCapabilities( 7834): Unsupported mime audio/x-adpcm-dvi-ima
+W/AudioCapabilities( 7834): Unsupported mime audio/x-adpcm-ms
+W/AudioCapabilities( 7834): Unsupported mime audio/x-adpcm-ms
+W/AudioCapabilities( 7834): Unsupported mime audio/alac
+W/AudioCapabilities( 7834): Unsupported mime audio/alac
+W/VideoCapabilities( 7834): Unsupported mime image/vnd.android.heic
+W/VideoCapabilities( 7834): Unsupported mime image/vnd.android.heic
+W/VideoCapabilities( 7834): Unsupported mime image/vnd.android.heic
+W/VideoCapabilities( 7834): Unsupported mime image/vnd.android.heic
+W/VideoCapabilities( 7834): Unsupported mime video/x-ms-wmv
+W/VideoCapabilities( 7834): Unsupported mime video/x-ms-wmv
+I/PlatformViewsController( 7834): Hosting view in view hierarchy for platform view: 0
+D/BufferQueueConsumer( 7834): [](id:1e9a00000002,api:0,p:-1,c:7834) connect: controlledByApp=true
+D/Surface ( 7834): lockHardwareCanvas
+D/CompatibilityChangeReporter( 7834): Compat change id reported: 193247900; UID 10426; state: ENABLED
+D/hw-ProcessState( 7834): Binder ioctl to enable oneway spam detection failed: Invalid argument
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+D/ple.application( 7834): MiuiProcessManagerServiceStub setSchedFifo
+I/MiuiProcessManagerImpl( 7834): setSchedFifo pid:7834, mode:3
+W/Parcel  ( 7834): Expecting binder but got null!
+The Flutter DevTools debugger and profiler on 21081111RG is available at: http://127.0.0.1:9101?uri=http://127.0.0.1:33389/uSaEywfyGuc=/
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/BLASTBufferQueue( 7834): [SurfaceView[com.example.application/com.example.application.MainActivity]#1](f:0,a:1) acquireNextBufferLocked size=2316x1080 mFrameNumber=1 applyTransaction=true mTimestamp=197314813375837(auto) mPendingTransactions.size=0 graphicBufferId=33646773796865 transform=7
+D/Surface ( 7834): lockHardwareCanvas
+I/flutter ( 7834): ### Connected
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/BLASTBufferQueue( 7834): [VRI[MainActivity]#0](f:0,a:1) producer disconnected before: mAbandoned=0
+D/BLASTBufferQueue( 7834): - BufferQueue mMaxAcquiredBufferCount=2 mMaxDequeuedBufferCount=2
+D/BLASTBufferQueue( 7834):   mDequeueBufferCannotBlock=0 mAsyncMode=0
+D/BLASTBufferQueue( 7834):   mQueueBufferCanDrop=0 mLegacyBufferDrop=1
+D/BLASTBufferQueue( 7834):   default-size=[2316x1080] default-format=1   transform-hint=04 frame-counter=1
+D/BLASTBufferQueue( 7834):   mTransformHintInUse=04 mAutoPrerotation=0
+D/BLASTBufferQueue( 7834): FIFO(0):
+D/BLASTBufferQueue( 7834): (mConsumerName=VRI[MainActivity]#0(BLAST Consumer)0, mConnectedApi=1, mConsumerUsageBits=2304, mId=1e9a00000000, producer=[7834:com.example.application], consumer=[7834:com.example.application])
+D/BLASTBufferQueue( 7834): Slots:
+D/BLASTBufferQueue( 7834):  >[00:0xb4000072ffd68100] state=ACQUIRED 0xb4000072ff0e2680 frame=1 [1080x2316:1088,  1]
+D/BLASTBufferQueue( 7834):   [01:0x0] state=FREE    
+D/BLASTBufferQueue( 7834):   [02:0x0] state=FREE    
+D/BLASTBufferQueue( 7834):   [03:0x0] state=FREE    
+D/BLASTBufferQueue( 7834): [VRI[MainActivity]#0](f:0,a:1) acquireNextBufferLocked size=2316x1080 mFrameNumber=1 applyTransaction=true mTimestamp=197314854328452(auto) mPendingTransactions.size=0 graphicBufferId=33646773796867 transform=7
+W/Parcel  ( 7834): Expecting binder but got null!
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+D/DecorView[]( 7834): onWindowFocusChanged hasWindowFocus true
+I/HandWritingStubImpl( 7834): refreshLastKeyboardType: 1
+I/HandWritingStubImpl( 7834): getCurrentKeyboardType: 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/HandWritingStubImpl( 7834): getCurrentKeyboardType: 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+W/MirrorManager( 7834): this model don't Support
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.3314501953124997
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.3314501953124997
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.6601191850142044
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.6601191850142044
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 222
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 33
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 189
+I/flutter ( 7834): Y: -0.9526018732244316
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.9526018732244316
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973185972453035
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.9973185972453035
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 156
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973764305985797
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.9973764305985797
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+I/flutter ( 7834): ### TYPE 1 = 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973329873314656
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = -0.9973329873314656
+I/flutter ( 7834): ### TYPE 1 = 156
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): yDir = -0.9973346258890337
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 156
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): Y: -0.9973346258890337
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+I/flutter ( 7834): ### TYPE 1 = 99
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): Y: -0.9973346258890337
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+I/flutter ( 7834): ### TYPE 1 = 99
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): Y: -0.9973346258890337
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+I/flutter ( 7834): ### TYPE 1 = 99
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: -0.9973346258890337
+I/flutter ( 7834): ### TYPE 1 = 99
+D/Surface ( 7834): lockHardwareCanvas
+I/flutter ( 7834): Y: 0.0
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.0
+I/flutter ( 7834): ### TYPE 1 = 99
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.17209028764204562
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.17209028764204562
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.7614100230823863
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.7614100230823863
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 17
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 17
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9308025568181819
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.9308025568181819
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9620183771306818
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.9620183771306818
+I/libPerfCtl( 7834): fbcNotifySbeRescue ret=-1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+W/FramePolicy( 7834): type=1400 audit(0.0:827459): avc: denied { ioctl } for path="/proc/perfmgr/perf_ioctl" dev="proc" ino=4026534224 ioctlcmd=0x6716 scontext=u:r:untrusted_app:s0:c170,c257,c512,c768 tcontext=u:object_r:proc_perfmgr:s0 tclass=file permissive=0 app=com.example.application
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9688236860795456
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): yDir = 0.9688236860795456
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 1
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+I/flutter ( 7834): yDir = 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+I/flutter ( 7834): Y: 0.9690909090909093
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+I/flutter ( 7834): Y: 0.9690909090909093
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): Y: 0.0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 96
+I/flutter ( 7834): yDir = 0.0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): X: 0.6065953480113637
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): xDir = 0.6065953480113637
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): X: 0.9927840339737796
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): xDir = 0.9927840339737796
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): X: 0.9928216692012516
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): xDir = 0.9928216692012516
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): X: 0.9931075343431784
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): xDir = 0.9931075343431784
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): X: 0.0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 1 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): xDir = 0.0
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 1 = 0
+I/flutter ( 7834): ### TYPE 2 = 60
+I/flutter ( 7834): ### TYPE 2 = 2
+I/flutter ( 7834): ### TYPE 2 = 99
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+I/flutter ( 7834): ### TYPE 2 = 0
+D/Surface ( 7834): lockHardwareCanvas
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/GPUAUX  ( 7834): [AUX]GuiExtAuxCheckAuxPath:663: Null anb
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/FrameEvents( 7834): updateAcquireFence: Did not find frame.
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+E/gralloc4( 7834): Empty SMPTE 2094-40 data
+Application finished.
