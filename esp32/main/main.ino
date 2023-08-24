@@ -19,6 +19,7 @@ String password = "280841632";
 const int port = 1234;
 WebSocketsServer server = WebSocketsServer(port);
 BluetoothSerial SerialBT;
+uint8_t gnum = -1;
 
 void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
     switch(type) {
@@ -27,6 +28,7 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
             break;
         case WStype_CONNECTED:
             {
+              gnum = num;
                 IPAddress ip = server.remoteIP(num);
                 // Serial.printf("[%u] Connected from %d.%d.%d.%d url: %s\n", num, ip[0], ip[1], ip[2], ip[3], payload);
 
@@ -103,6 +105,13 @@ void loop() {
       
       state = READY;
     }
+  }
+  std::string sss = "";
+  while (Serial.available()) {
+    sss += (char)Serial.read();
+  }
+  if (gnum != -1 && sss != "") {
+    server.sendTXT(gnum, sss.c_str());
   }
 
 

@@ -102,6 +102,43 @@ void usDelay(uint32_t sec) {
   TIM5->SR &= ~(0x0001);
 }
 
+void neka_random_sekvenca() {
+    left(625);
+    forward(350);
+    HAL_Delay(2000);
+    forward(625);
+    right(625);
+    HAL_Delay(2000);
+    forward(450);
+    HAL_Delay(2000);
+    forward(0);
+    left(625);
+    HAL_Delay(2000);
+    forward(625);
+    HAL_Delay(2000);
+    forward(0);
+    left(0);
+
+    HAL_Delay(3000);
+
+    backward(350);
+    left(625);
+    HAL_Delay(2000);
+    backward(625);
+    HAL_Delay(2000);
+    backward(450);
+    right(625);
+    HAL_Delay(2000);
+    backward(0);
+    HAL_Delay(2000);
+    backward(625);
+    HAL_Delay(2000);
+    backward(0);
+    left(0);
+
+    HAL_Delay(3000);
+}
+
 float front_distance_check_sensor() {
     static int numTicks;
     static float distance;
@@ -175,13 +212,13 @@ void backward(int x) {
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
 }
 
-left(int x) {
+void left(int x) {
   // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_RESET);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
 }
 
-right(int x) {
+void right(int x) {
   // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
   HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_SET);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
@@ -219,114 +256,78 @@ int main(void)
   uint8_t right_direction_lights = 0;
   uint8_t left_direction_lights = 0;
 
-  int x;
+  // neka_random_sekvenca();
+
   while (1)
   {
-    left(625);
-    forward(350);
-    HAL_Delay(2000);
-    forward(625);
-    right(625);
-    HAL_Delay(2000);
-    forward(450);
-    HAL_Delay(2000);
-    forward(0);
-    left(625);
-    HAL_Delay(2000);
-    forward(625);
-    HAL_Delay(2000);
-    forward(0);
-    left(0);
+    memset(rcvBuf, 0, 100 * sizeof(char));
+    HAL_UART_Receive(&huart4, rcvBuf, 1, 50);
 
-    HAL_Delay(3000);
+    switch (((uint8_t)(rcvBuf[0])))
+    {
+    case 1:
+    {
+      /* voltage_engine_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(voltage_engine_message) - 1, 50);
+      voltage_engine_message* msg = (voltage_engine_message *) rcvBuf;
 
-    backward(350);
-    left(625);
-    HAL_Delay(2000);
-    backward(625);
-    HAL_Delay(2000);
-    backward(450);
-    right(625);
-    HAL_Delay(2000);
-    backward(0);
-    HAL_Delay(2000);
-    backward(625);
-    HAL_Delay(2000);
-    backward(0);
-    left(0);
+      sprintf(uartBuf, "TYPE 1 = %d\r\n",
+                msg->voltage);
+		  HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
-    HAL_Delay(3000);
-    
-    // HAL_UART_Receive(&huart4, rcvBuf, 1, 50);
+      int voltage = (625 / 100) * msg->voltage;
+      if (msg->voltage > 100) {
+        msg->voltage = 255 - msg->voltage;
+        voltage = (625 / 100) * msg->voltage;
+        backward(voltage);
+      } else {
+        voltage = (625 / 100) * msg->voltage;
+        forward(voltage);
+      }
+    }
+      break;
+    case 2:
+    {
+      /* direction_change_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(direction_change_message) - 1, 50);
+      direction_change_message* msg = (direction_change_message *) rcvBuf;
 
-    // switch (((uint8_t)(rcvBuf[0])))
-    // {
-    // case 1:
-    // {
-    //   /* voltage_engine_message */
-    //   HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(voltage_engine_message) - 1, 50);
-    //   voltage_engine_message* msg = (voltage_engine_message *) rcvBuf;
+      sprintf(uartBuf, "TYPE 2 = %d\r\n",
+                msg->direction);
+		  HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
-    //   sprintf(uartBuf, "TYPE 1 = %d\r\n",
-    //             msg->voltage);
-		//   HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+      int voltage;
+      if (msg->direction > 100) {
+        msg->direction = 255 - msg->direction;
+        voltage = (625 / 100) * msg->direction;
+        right(voltage);
+      } else {
+        voltage = (625 / 100) * msg->direction;
+        left(voltage);
+      }
+    }
+      break;
+    case 3:
+    {
+      /* led_change_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(led_change_message) - 1, 50);
+      led_change_message* msg = (led_change_message *) rcvBuf;
 
-    //   if (msg->voltage > 100) {
-    //     HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_SET);
-    //     msg->voltage = 255 - msg->voltage;
-    //   } else {
-    //     HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_RESET);
-    //   }
+      // sprintf(uartBuf, "TYPE 3 = %d, %d, %d, %d \r\n",
+      //           msg->auto_lights,
+      //           msg->front_light,
+      //           msg->left_dir_light,
+      //           msg->right_dir_light);
+		  // HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
-    //   int voltage = (625 / 100) * msg->voltage;
-    //   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, voltage);
+      HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, msg->left_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, msg->right_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      auto_lights = msg->auto_lights ? 1 : 0;
+    }
+      break;
+    }
 
-    // }
-    //   break;
-    // case 2:
-    // {
-    //   /* direction_change_message */
-    //   HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(direction_change_message) - 1, 50);
-    //   direction_change_message* msg = (direction_change_message *) rcvBuf;
-
-    //   sprintf(uartBuf, "TYPE 2 = %d\r\n",
-    //             msg->direction);
-		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
-
-
-    //   if (msg->direction > 100) {
-    //     HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_SET);
-    //     msg->direction = 255 - msg->direction;
-    //   } else {
-    //     HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_RESET);
-    //   }
-
-    //   int voltage = (625 / 100) * msg->direction;
-    //   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, voltage);
-    // }
-    //   break;
-    // case 3:
-    // {
-    //   /* led_change_message */
-    //   HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(led_change_message) - 1, 50);
-    //   led_change_message* msg = (led_change_message *) rcvBuf;
-
-    //   sprintf(uartBuf, "TYPE 3 = %d, %d, %d, %d \r\n",
-    //             msg->auto_lights,
-    //             msg->front_light,
-    //             msg->left_dir_light,
-    //             msg->right_dir_light);
-		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
-
-    //   HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    //   HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, msg->left_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    //   HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, msg->right_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
-    //   auto_lights = msg->auto_lights ? 1 : 0;
-    // }
-    //   break;
-    // }
-
-    // auto_lights = 1;
     // if (auto_lights && light_sensor_check()) {
     //   HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
     // } else {
