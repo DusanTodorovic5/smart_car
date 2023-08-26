@@ -20,6 +20,7 @@ const int port = 1234;
 WebSocketsServer server = WebSocketsServer(port);
 BluetoothSerial SerialBT;
 uint8_t gnum = -1;
+char msgBuf[100];
 
 void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
     switch(type) {
@@ -43,10 +44,13 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
               case 1: 
                 // Serial.printf("Recv [%u] with voltage [%u]\n", voltage_message.message_type, voltage_message.voltage);
                 Serial.write((uint8_t *) &voltage_message, sizeof(voltage_message));
+                // sprintf(msgBuf, "Recv [%u] with voltage [%u]\n", voltage_message.message_type, voltage_message.voltage);
+                // server.sendTXT(num, msgBuf);
                 break;
               case 2: 
-                // Serial.printf("Recv [%u] with direction [%u]\n", direction_message.message_type, direction_message.direction);
+                // sprintf(msgBuf, "Recv [%u] with direction [%u]\n", direction_message.message_type, direction_message.direction);
                 Serial.write((uint8_t *) &direction_message, sizeof(direction_message));
+                // server.sendTXT(num, msgBuf);
                 break;
               case 3: 
                 // Serial.printf("Recv [%u] with values [%u],[%u],[%u],[%u]\n", 
@@ -107,7 +111,7 @@ void loop() {
     }
   }
   std::string sss = "";
-  while (Serial.available()) {
+  while (Serial.available() && sss.length() < 40) {
     sss += (char)Serial.read();
   }
   if (gnum != -1 && sss != "") {
