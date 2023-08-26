@@ -23,7 +23,7 @@
 #include "messages.h"
 
 #define LIGHT_SENSOR_TRESHOLD 120
-/*2.8*0.0343/2*/
+/* 2.8*0.0343/2 */
 #define SPEED_OF_SOUND 0.04802
 
 /* Private includes ----------------------------------------------------------*/
@@ -255,8 +255,11 @@ int main(void)
   uint8_t auto_lights = 0;
   uint8_t right_direction_lights = 0;
   uint8_t left_direction_lights = 0;
+  uint8_t lights = 0;
   int voltage = 0;
-    int direction = 0;
+  int direction = 0;
+  float distance_front = 0;
+  float distance_back = 0;
 
 
   // neka_random_sekvenca();
@@ -320,9 +323,10 @@ int main(void)
                 msg->right_dir_light);
 		  HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
 
-      HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      // HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
       // HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, msg->left_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
       // HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, msg->right_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      lights = msg->front_light ? 1 : 0;
       right_direction_lights = msg->right_dir_light ? 1 : 0;
       left_direction_lights = msg->left_dir_light ? 1 : 0;
       auto_lights = msg->auto_lights ? 1 : 0;
@@ -336,7 +340,7 @@ int main(void)
       break;
     }
 
-    if (auto_lights && light_sensor_check()) {
+    if ((auto_lights && light_sensor_check()) || lights) {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
     } else {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
@@ -350,27 +354,28 @@ int main(void)
     // Set the timestamp so the lights can blink
     if (right_direction_lights) {
       HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, GPIO_PIN_SET);
-    }
-    else {
+    } else {
       HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, GPIO_PIN_RESET);
     }
     if (left_direction_lights) {
       HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_SET);
-    }
-    else {
+    } else {
       HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_RESET);
     }
 
     // If voltage == 0 set stop lights
     if (voltage == 0) {
       HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
-    }
-    else {
+    } else {
       HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_RESET);
     }
 
-    // front_distance_check_sensor();
-    // rear_distance_check_sensor();
+    distance_front = front_distance_check_sensor();
+    distance_back = rear_distance_check_sensor();
+    if (distance_back < 10 || distance_front < 10) {
+      voltage = 0;
+      forward(voltage);
+    }
   }
 }
 
