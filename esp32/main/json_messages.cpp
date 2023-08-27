@@ -11,7 +11,9 @@ String password_bt = "";
 String ssid_bt = "";
 
 uint8_t new_message(char* payload) {
-  deserializeJson(doc, payload);
+  if (deserializeJson(doc, payload) != DeserializationError::Ok) {
+    return 0;
+  }
 
   type = doc["type"];
 
@@ -40,7 +42,9 @@ void set_lights() {
 }
 
 uint8_t bt_message(char* payload) {
-  deserializeJson(doc, payload);
+  if (deserializeJson(doc, payload) != DeserializationError::Ok) {
+    return 0;
+  }
 
   password_bt = (const char*)doc["password"];
   ssid_bt = (const char*)doc["ssid"];

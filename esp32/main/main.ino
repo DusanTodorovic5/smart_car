@@ -97,23 +97,23 @@ void loop() {
       recvMessage += incomingChar;
     }
 
-    // Serial.printf("Received: %s\n", recvMessage.c_str());
-
     if (bt_message((char*)recvMessage.c_str())) {
-      // Serial.printf("\tSSID: %s\n\tPASSWORD: %s\n", password_bt.c_str(), ssid_bt.c_str());
 
       ssid = ssid_bt;
       password = password_bt;
 
+      gnum = -1;
       WiFi.disconnect();
       
       state = READY;
     }
   }
+
   std::string sss = "";
   while (Serial.available() && sss.length() < 40) {
     sss += (char)Serial.read();
   }
+
   if (gnum != -1 && sss != "") {
     server.sendTXT(gnum, sss.c_str());
   }
@@ -121,30 +121,20 @@ void loop() {
 
   switch (state) {
     case READY:
-      // Serial.println();
-      // Serial.print("Connecting to ");
-      // Serial.println(ssid.c_str());
-
       WiFi.begin(ssid.c_str(), password.c_str());
 
       delay_counter = 0;
-      while (WiFi.status() != WL_CONNECTED && delay_counter < 10) {
+      while (WiFi.status() != WL_CONNECTED && delay_counter < 15) {
         delay(1000);
-        // Serial.print(".");
         delay_counter++;
       }
 
-      // Serial.println("WiFi connected");
-      // Serial.println("IP address: ");
-      // Serial.println(WiFi.localIP());
-
-      SerialBT.printf("WiFi connected\nIP address: %s\n", WiFi.localIP());
+      SerialBT.printf("{\"ip\": \"%s\"}",  WiFi.localIP());
 
       server.begin();
 
       initCamera();
 
-      // Serial.println("Server started");
       server.onEvent(onWebSocketEvent);
     
       state = WIFI_CONNECTED;
