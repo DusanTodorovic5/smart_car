@@ -1,4 +1,5 @@
 import 'package:application/classes/websocket.dart';
+import 'package:application/pages/bluetooth_manager.dart';
 import 'package:application/widgets/lights_widget.dart';
 import 'package:application/widgets/video_player.dart';
 import 'package:application/widgets/wifi_connect.dart';
@@ -32,7 +33,7 @@ class _LandingPageState extends State<LandingPage> {
   void initState() {
     super.initState();
     webSocket = WebSocket(
-      uri: "ws://192.168.0.15:1234",
+      uri: "ws://192.168.100.14:1234",
       onMessage: onMessage,
     );
 
@@ -193,6 +194,26 @@ class _LandingPageState extends State<LandingPage> {
             ListTile(
               title: const Row(
                 children: [
+                  Icon(Icons.bluetooth),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('Configure ESP'),
+                ],
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MainPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Row(
+                children: [
                   Icon(Icons.connect_without_contact),
                   SizedBox(
                     width: 5,
@@ -203,7 +224,7 @@ class _LandingPageState extends State<LandingPage> {
               onTap: () {
                 webSocket.channel.sink.close();
                 webSocket = WebSocket(
-                  uri: "ws://192.168.0.15:1234",
+                  uri: "ws://192.168.100.14:1234",
                   onMessage: onMessage,
                 );
               },

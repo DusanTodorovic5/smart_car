@@ -21,7 +21,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         },
       ),
     )
-    ..loadRequest(Uri.parse('http://192.168.0.15'));
+    ..loadRequest(Uri.parse('http://192.168.100.14'));
   @override
   void initState() {
     super.initState();
