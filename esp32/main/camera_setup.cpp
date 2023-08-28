@@ -7,6 +7,7 @@
 #include "img_converters.h"
 #include "soc/soc.h" //disable brownout problems
 #include "soc/rtc_cntl_reg.h"  //disable brownout problems
+
 const char* _STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" PART_BOUNDARY;
 const char* _STREAM_BOUNDARY = "\r\n--" PART_BOUNDARY "\r\n";
 const char* _STREAM_PART = "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n";
@@ -35,14 +36,10 @@ esp_err_t stream_handler(httpd_req_t *req){
 
   httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
   httpd_resp_set_hdr(req, "X-Framerate", "60");
-  if(res != ESP_OK){
-    return res;
-  }
 
   while(true){
     fb = esp_camera_fb_get();
     if (!fb) {
-      // Serial.println("Camera capture failed");
       res = ESP_FAIL;
     } else {
       _timestamp.tv_sec = fb->timestamp.tv_sec;
@@ -55,7 +52,6 @@ esp_err_t stream_handler(httpd_req_t *req){
         fb = NULL;
 
         if(!jpeg_converted){
-          // Serial.println("JPEG compression failed");
           res = ESP_FAIL;
         }
       } else {
@@ -89,33 +85,46 @@ esp_err_t stream_handler(httpd_req_t *req){
       _jpg_buf = NULL;
     }
     if(res != ESP_OK){
-      // Serial.printf("ERROR: %d\n\n", res);
+      // Serial.printf("ERROR: %d\n\r", res);
       break;
     }
 
     //Serial.printf("MJPG: %uB\n",(uint32_t)(_jpg_buf_len));
   }
+
+  // httpd_resp_send_408(req);
+
   return res;
+}
+
+void closeCameraServer() {
+  // Unregister the URI handler
+  httpd_unregister_uri_handler(stream_httpd, "/", HTTP_GET);
+
+  // Stop the HTTP server
+  httpd_stop(stream_httpd);
+  stream_httpd = NULL;
 }
 
 void startCameraServer(){
   httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-  config.server_port = 80;
+  config.max_uri_handlers = 16;
+  // config.server_port = 80;
 
   httpd_uri_t index_uri = {
     .uri       = "/",
     .method    = HTTP_GET,
     .handler   = stream_handler,
     .user_ctx  = NULL
-    #ifdef CONFIG_HTTPD_WS_SUPPORT
-        ,
-        .is_websocket = true,
-        .handle_ws_control_frames = false,
-        .supported_subprotocol = NULL
+#ifdef CONFIG_HTTPD_WS_SUPPORT
+    ,
+    .is_websocket = true,
+    .handle_ws_control_frames = false,
+    .supported_subprotocol = NULL
 #endif
   };
   
-  //Serial.printf("Starting web server on port: '%d'\n", config.server_port);
+  // Serial.printf("Starting web server on port: '%d'\n", config.server_port);
   if (httpd_start(&stream_httpd, &config) == ESP_OK) {
     httpd_register_uri_handler(stream_httpd, &index_uri);
   }
@@ -150,12 +159,6 @@ void initCamera() {
   config.jpeg_quality = 20;
   config.fb_count = 1;
 
-#if defined(CAMERA_MODEL_ESP_EYE)
-// Serial.println("ESP EYE");
-  pinMode(13, INPUT_PULLUP);
-  pinMode(14, INPUT_PULLUP);
-#endif
-
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
@@ -171,16 +174,5 @@ void initCamera() {
     s->set_saturation(s, 0); // lower the saturation
   }
 
-#if defined(CAMERA_MODEL_M5STACK_WIDE) || defined(CAMERA_MODEL_M5STACK_ESP32CAM)
-// Serial.println("MSTACK");
-  s->set_vflip(s, 1);
-  s->set_hmirror(s, 1);
-#endif
-
-#if defined(CAMERA_MODEL_ESP32S3_EYE)
-// Serial.println("ESP EYE 32");
-  s->set_vflip(s, 1);
-#endif
-
-  startCameraServer();
+  
 }

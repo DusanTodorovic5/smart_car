@@ -12,6 +12,7 @@ extern httpd_handle_t stream_httpd;
 esp_err_t stream_handler(httpd_req_t *req);
 
 void startCameraServer();
+void closeCameraServer();
 
 void initCamera();
 

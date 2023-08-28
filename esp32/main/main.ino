@@ -83,8 +83,8 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
 
 void setup() {
   Serial.begin(115200);
-  // SerialBT.begin("ESP32");
   delay(1000);
+  initCamera();
   state = READY;
 }
 
@@ -103,8 +103,12 @@ void loop() {
       password = password_bt;
 
       gnum = -1;
+      server.disconnect();
+      server.close();
+      server = WebSocketsServer(port);
+      closeCameraServer();
       WiFi.disconnect();
-      
+      WiFi.mode(WIFI_STA);
       state = READY;
     }
   }
@@ -122,28 +126,35 @@ void loop() {
   switch (state) {
     case READY:
       WiFi.begin(ssid.c_str(), password.c_str());
-
       delay_counter = 0;
-      while (WiFi.status() != WL_CONNECTED && delay_counter < 15) {
+      while (WiFi.status() != WL_CONNECTED && delay_counter < 10) {
         delay(1000);
         delay_counter++;
       }
 
-      SerialBT.printf("{\"ip\": \"%s\"}",  WiFi.localIP());
+      if (WiFi.status() != WL_CONNECTED) {
+        WiFi.disconnect();
+        WiFi.mode(WIFI_OFF);
+        SerialBT.begin("ESP32");
+        state = BLUETOOTH_CONNECTED;
+      } else {
+        IPAddress localIp = WiFi.localIP();
+        SerialBT.printf("{\"ip\": \"%d.%d.%d.%d\"}", localIp[0], localIp[1], localIp[2], localIp[3]);
+        delay(1000);
+        SerialBT.end();
 
-      server.begin();
-
-      initCamera();
-
-      server.onEvent(onWebSocketEvent);
-    
-      state = WIFI_CONNECTED;
+        server.begin();
+        server.onEvent(onWebSocketEvent);
+        
+        startCameraServer();
+      
+        state = WIFI_CONNECTED;
+      }
       break;
     case WIFI_CONNECTED:
       server.loop();
       break;
     case BLUETOOTH_CONNECTED:
-      WiFi.disconnect();
       break;
   } 
 }
