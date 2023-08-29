@@ -202,26 +202,38 @@ float rear_distance_check_sensor() {
 
 void forward(int x) {
   // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 0);
+  HAL_GPIO_WritePin(motor_control_relay_GPIO_Port, motor_control_relay_Pin, GPIO_PIN_SET);
+  HAL_Delay(50);
   HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_RESET);
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
+  HAL_GPIO_WritePin(motor_control_relay_GPIO_Port, motor_control_relay_Pin, GPIO_PIN_RESET);
 }
 
 void backward(int x) {
   // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 0);
+  HAL_GPIO_WritePin(motor_control_relay_GPIO_Port, motor_control_relay_Pin, GPIO_PIN_SET);
+  HAL_Delay(50);
   HAL_GPIO_WritePin(motor_relay_GPIO_Port, motor_relay_Pin, GPIO_PIN_SET);
   __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, x);
+  HAL_GPIO_WritePin(motor_control_relay_GPIO_Port, motor_control_relay_Pin, GPIO_PIN_RESET);
 }
 
 void left(int x) {
   // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+  HAL_GPIO_WritePin(direction_control_relay_GPIO_Port, direction_control_relay_Pin, GPIO_PIN_SET);
+  HAL_Delay(50);
   HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_RESET);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
+  HAL_GPIO_WritePin(direction_control_relay_GPIO_Port, direction_control_relay_Pin, GPIO_PIN_RESET);
 }
 
 void right(int x) {
   // __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
+  HAL_GPIO_WritePin(direction_control_relay_GPIO_Port, direction_control_relay_Pin, GPIO_PIN_SET);
+  HAL_Delay(50);
   HAL_GPIO_WritePin(direction_relay_GPIO_Port, direction_relay_Pin, GPIO_PIN_SET);
   __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, x);
+  HAL_GPIO_WritePin(direction_control_relay_GPIO_Port, direction_control_relay_Pin, GPIO_PIN_RESET);
 }
 
 /* USER CODE END 0 */
@@ -262,7 +274,7 @@ int main(void)
   float distance_back = 0;
 
 
-  // neka_random_sekvenca();
+  neka_random_sekvenca();
 
   while (1)
   {
@@ -370,12 +382,12 @@ int main(void)
       HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_RESET);
     }
 
-    distance_front = front_distance_check_sensor();
-    distance_back = rear_distance_check_sensor();
-    if (distance_back < 10 || distance_front < 10) {
-      voltage = 0;
-      forward(voltage);
-    }
+    // distance_front = front_distance_check_sensor();
+    // distance_back = rear_distance_check_sensor();
+    // if (distance_back < 10 || distance_front < 10) {
+    //   voltage = 0;
+    //   forward(voltage);
+    // }
   }
 }
 
@@ -700,18 +712,22 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, motor_relay_Pin|direction_relay_Pin|front_sensor_output_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, motor_relay_Pin|direction_relay_Pin|front_sensor_output_Pin|motor_control_relay_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, back_sensor_output_Pin|lights_Pin|stop_lights_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(direction_control_relay_GPIO_Port, direction_control_relay_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : left_dir_light_Pin */
   GPIO_InitStruct.Pin = left_dir_light_Pin;
@@ -720,8 +736,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(left_dir_light_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : motor_relay_Pin direction_relay_Pin front_sensor_output_Pin */
-  GPIO_InitStruct.Pin = motor_relay_Pin|direction_relay_Pin|front_sensor_output_Pin;
+  /*Configure GPIO pins : motor_relay_Pin direction_relay_Pin front_sensor_output_Pin motor_control_relay_Pin */
+  GPIO_InitStruct.Pin = motor_relay_Pin|direction_relay_Pin|front_sensor_output_Pin|motor_control_relay_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -752,6 +768,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(back_sensor_input_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : direction_control_relay_Pin */
+  GPIO_InitStruct.Pin = direction_control_relay_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(direction_control_relay_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
