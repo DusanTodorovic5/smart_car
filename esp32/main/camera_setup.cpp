@@ -34,8 +34,7 @@ esp_err_t stream_handler(httpd_req_t *req){
       return res;
   }
 
-  httpd_resp_set_hdr(req, "Access-Control-Allow-Origin", "*");
-  httpd_resp_set_hdr(req, "X-Framerate", "60");
+  httpd_resp_set_hdr(req, "X-Framerate", "24");
 
   while(true){
     fb = esp_camera_fb_get();
@@ -150,13 +149,13 @@ void initCamera() {
   config.pin_sscb_scl = SIOC_GPIO_NUM;
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 20000000;
+  config.xclk_freq_hz = 10000000;
   config.frame_size = FRAMESIZE_SVGA;
   config.pixel_format = PIXFORMAT_JPEG; // for streaming
   //config.pixel_format = PIXFORMAT_RGB565; // for face detection/recognition
   config.grab_mode = CAMERA_GRAB_WHEN_EMPTY;
   config.fb_location = CAMERA_FB_IN_PSRAM;
-  config.jpeg_quality = 20;
+  config.jpeg_quality = 12;
   config.fb_count = 1;
 
   // camera init
@@ -173,6 +172,4 @@ void initCamera() {
     s->set_brightness(s, 2); // up the brightness just a bit
     s->set_saturation(s, 0); // lower the saturation
   }
-
-  
 }

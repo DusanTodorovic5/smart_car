@@ -13,8 +13,8 @@
 State state;
 uint8_t delay_counter = 0;
 
-String ssid = "9604e6";
-String password = "280841632";
+String ssid = "Duke 2.4";
+String password = "dukeiam5";
 
 const int port = 1234;
 WebSocketsServer server = WebSocketsServer(port);
