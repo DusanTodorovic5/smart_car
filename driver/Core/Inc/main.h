@@ -59,12 +59,22 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define left_dir_light_Pin GPIO_PIN_5
+#define left_dir_light_GPIO_Port GPIOE
 #define input4_Pin GPIO_PIN_3
 #define input4_GPIO_Port GPIOC
+#define light_sensor_Pin GPIO_PIN_3
+#define light_sensor_GPIO_Port GPIOA
 #define input1_Pin GPIO_PIN_4
 #define input1_GPIO_Port GPIOA
+#define lights_Pin GPIO_PIN_5
+#define lights_GPIO_Port GPIOA
+#define stop_lights_Pin GPIO_PIN_7
+#define stop_lights_GPIO_Port GPIOA
 #define input2_Pin GPIO_PIN_4
 #define input2_GPIO_Port GPIOC
+#define right_dir_light_Pin GPIO_PIN_0
+#define right_dir_light_GPIO_Port GPIOB
 #define input3_Pin GPIO_PIN_1
 #define input3_GPIO_Port GPIOB
 #define motor_pwm1_Pin GPIO_PIN_11
@@ -73,7 +83,8 @@ void Error_Handler(void);
 #define motor_pwm2_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
-
+// extern uint8_t right_direction_lights;
+// extern uint8_t left_direction_lights;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

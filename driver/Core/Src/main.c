@@ -42,8 +42,9 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 TIM_HandleTypeDef htim1;
-TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim5;
 
 UART_HandleTypeDef huart4;
@@ -56,9 +57,9 @@ UART_HandleTypeDef huart4;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
-static void MX_TIM3_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_UART4_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
   // Engine
 
@@ -74,6 +75,11 @@ char rcvBuf[100];
 #define LEFT_DIRECTION 0
 #define RIGHT_DIRECTION 1
 #define COUNTER_PERIOD 625
+
+#define LIGHT_SENSOR_TRESHOLD 120
+
+uint8_t right_direction_lights = 1;
+uint8_t left_direction_lights = 1;
 
 int scalePercentToDutyCycle(int intensity) {
     return (intensity / 100.0) * COUNTER_PERIOD;
@@ -117,6 +123,18 @@ void change_direction(int intensity, int direction) {
             HAL_GPIO_WritePin(input3_GPIO_Port, input3_Pin , GPIO_PIN_RESET);
             HAL_GPIO_WritePin(input4_GPIO_Port, input4_Pin , GPIO_PIN_RESET);
     }
+}
+
+uint8_t light_sensor_check() {
+  HAL_ADC_Start(&hadc1);
+  HAL_ADC_PollForConversion(&hadc1, 1);
+
+  uint32_t val = HAL_ADC_GetValue(&hadc1);
+
+  // sprintf(uartBuf, "Analog value  = %d \r\n", (int)val);
+  // HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+  return val < LIGHT_SENSOR_TRESHOLD;
 }
 
 void seq() {
@@ -180,16 +198,27 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+    HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, GPIO_PIN_SET);
   MX_TIM1_Init();
-  MX_TIM3_Init();
   MX_TIM5_Init();
   MX_UART4_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2); 
     HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
     __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
+
+    uint8_t auto_lights = 0;
+    uint8_t lights = 0;
+
+
+    sprintf(uartBuf, "Started!");
+	HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -198,7 +227,6 @@ int main(void)
   {
     // seq();
     // continue;
-    /* USER CODE END WHILE */
     memset(rcvBuf, 0, 100 * sizeof(char));
     // memset(uartBuf, 0, 100 * sizeof(char));
     HAL_UART_Receive(&huart4, rcvBuf, 1, 50);
@@ -207,27 +235,50 @@ int main(void)
     {
     case 1:
     {
+        /* voltage_engine_message */
       HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(voltage_engine_message) - 1, 100);
       voltage_engine_message* msg = (voltage_engine_message *) rcvBuf;
-
+      
       if (msg->voltage > 100) {
         change_speed(255 - msg->voltage, FORWARD_DIRECTION);
       } else {
         change_speed(msg->voltage, BACKWARDS_DIRECTION);
       }
+
+      if (msg->voltage == 0) {
+        HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
+      } else {
+        HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_RESET);
+      }
     }
       break;
-    case 2:
+    case 2: 
+    {
+        /* direction_change_message */
       HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(direction_change_message) - 1, 100);
       direction_change_message* msg = (direction_change_message *) rcvBuf;
 
       if (msg->direction > 100) {
-        change_direction(255 - msg->direction, LEFT_DIRECTION);
+        change_direction(255 - msg->direction, RIGHT_DIRECTION);
       } else {
-        change_direction(msg->direction, RIGHT_DIRECTION);
+        change_direction(msg->direction, LEFT_DIRECTION);
       }
+    }
       break;
     case 3:
+    {
+        /* led_change_message */
+      HAL_UART_Receive(&huart4, &(rcvBuf[1]), sizeof(led_change_message) - 1, 50);
+      led_change_message* msg = (led_change_message *) rcvBuf;
+
+      // HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, msg->front_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      // HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, msg->left_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      // HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, msg->right_dir_light ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      lights = msg->front_light ? 1 : 0;
+      right_direction_lights = msg->right_dir_light ? 1 : 0;
+      left_direction_lights = msg->left_dir_light ? 1 : 0;
+      auto_lights = msg->auto_lights ? 1 : 0;
+    }
       break;
     default:
       {
@@ -236,7 +287,14 @@ int main(void)
       }
       break;
     }
+    /* USER CODE END WHILE */
+
     /* USER CODE BEGIN 3 */
+    if ((auto_lights && light_sensor_check()) || lights) {
+      HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
+    } else {
+      HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -280,6 +338,58 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -358,51 +468,6 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 2 */
   HAL_TIM_MspPostInit(&htim1);
-
-}
-
-/**
-  * @brief TIM3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM3_Init(void)
-{
-
-  /* USER CODE BEGIN TIM3_Init 0 */
-
-  /* USER CODE END TIM3_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM3_Init 1 */
-
-  /* USER CODE END TIM3_Init 1 */
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM3_Init 2 */
-
-  /* USER CODE END TIM3_Init 2 */
 
 }
 
@@ -496,19 +561,29 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, input4_Pin|input2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(input1_GPIO_Port, input1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, input1_Pin|lights_Pin|stop_lights_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(input3_GPIO_Port, input3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, right_dir_light_Pin|input3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : left_dir_light_Pin */
+  GPIO_InitStruct.Pin = left_dir_light_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(left_dir_light_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : input4_Pin input2_Pin */
   GPIO_InitStruct.Pin = input4_Pin|input2_Pin;
@@ -517,19 +592,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : input1_Pin */
-  GPIO_InitStruct.Pin = input1_Pin;
+  /*Configure GPIO pins : input1_Pin lights_Pin stop_lights_Pin */
+  GPIO_InitStruct.Pin = input1_Pin|lights_Pin|stop_lights_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(input1_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : input3_Pin */
-  GPIO_InitStruct.Pin = input3_Pin;
+  /*Configure GPIO pins : right_dir_light_Pin input3_Pin */
+  GPIO_InitStruct.Pin = right_dir_light_Pin|input3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(input3_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
