@@ -1,3 +1,5 @@
+import 'package:application/classes/ip_address.dart';
+import 'package:application/classes/self_driving_car_icons_icons.dart';
 import 'package:application/classes/websocket.dart';
 import 'package:application/pages/bluetooth_manager.dart';
 import 'package:application/widgets/lights_widget.dart';
@@ -7,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'dart:async';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingPage extends StatefulWidget {
   LandingPage({super.key});
@@ -32,8 +36,9 @@ class _LandingPageState extends State<LandingPage> {
   @override
   void initState() {
     super.initState();
+
     webSocket = WebSocket(
-      uri: "ws://192.168.100.14:1234",
+      uri: IPAddress.websocket_ip,
       onMessage: onMessage,
     );
 
@@ -64,9 +69,9 @@ class _LandingPageState extends State<LandingPage> {
       MaterialStateProperty.resolveWith<Icon?>(
     (Set<MaterialState> states) {
       if (states.contains(MaterialState.selected)) {
-        return const Icon(Icons.wifi_protected_setup);
+        return const Icon(SelfDrivingCarIcons.autodrive);
       }
-      return const Icon(Icons.drive_eta);
+      return const Icon(SelfDrivingCarIcons.manualdrive);
     },
   );
 
@@ -92,30 +97,33 @@ class _LandingPageState extends State<LandingPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 LightsWidget(webSocket: webSocket),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Transform.scale(
-                      scale: 0.75,
-                      child: Joystick(
-                        mode: JoystickMode.horizontal,
-                        listener: (details) {
-                          print("### X: ${details.x}");
-                          xDir = details.x;
-                        },
+                Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Transform.scale(
+                        scale: 0.75,
+                        child: Joystick(
+                          mode: JoystickMode.horizontal,
+                          listener: (details) {
+                            // print("### X: ${details.x}");
+                            xDir = details.x;
+                          },
+                        ),
                       ),
-                    ),
-                    Transform.scale(
-                      scale: 0.75,
-                      child: Joystick(
-                        mode: JoystickMode.vertical,
-                        listener: (details) {
-                          print("### Y: ${details.y}");
-                          yDir = details.y;
-                        },
+                      Transform.scale(
+                        scale: 0.75,
+                        child: Joystick(
+                          mode: JoystickMode.vertical,
+                          listener: (details) {
+                            // print("### Y: ${details.y}");
+                            yDir = details.y;
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             )),
@@ -126,7 +134,7 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   AppBar createAppBar() => AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.grey),
         backgroundColor: Colors.transparent,
         actions: [
           Column(
@@ -156,6 +164,18 @@ class _LandingPageState extends State<LandingPage> {
           children: [
             SizedBox(
               height: AppBar().preferredSize.height,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                IPAddress.address,
+                style: const TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             ListTile(
               title: const Row(
@@ -221,13 +241,7 @@ class _LandingPageState extends State<LandingPage> {
                   Text('Reconnect to ESP'),
                 ],
               ),
-              onTap: () {
-                webSocket.channel.sink.close();
-                webSocket = WebSocket(
-                  uri: "ws://192.168.100.14:1234",
-                  onMessage: onMessage,
-                );
-              },
+              onTap: showReconnectDialog,
             ),
           ],
         ),
@@ -237,6 +251,50 @@ class _LandingPageState extends State<LandingPage> {
   // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
   //   content: Text(message),
   // ));
+
+  void showReconnectDialog() {
+    TextEditingController _controller = TextEditingController();
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('AlertDialog Title'),
+        content: TextField(
+          controller: _controller,
+          decoration: const InputDecoration.collapsed(
+            hintText: "Type in ip address",
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              if (_controller.text.length > 4) {
+                IPAddress.setAddress(_controller.text);
+                SharedPreferences.getInstance().then(
+                  (value) => value.setString("ip", IPAddress.address),
+                );
+
+                webSocket.channel.sink.close();
+
+                setState(() {
+                  webSocket = WebSocket(
+                    uri: IPAddress.websocket_ip,
+                    onMessage: onMessage,
+                  );
+                });
+              }
+
+              Navigator.pop(context);
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
 
   void changeDirectionX() {
     print("### xDir = ${xDir}");
@@ -261,8 +319,21 @@ class _LandingPageState extends State<LandingPage> {
   int convertToSTPercentage(double percentage) {
     int newValue = (percentage * 100).toInt();
 
+    if (newValue > -5 && newValue < 5) {
+      return 0;
+    }
+
     if (newValue < 0) {
+      newValue -= 40;
+      if (newValue < -100) {
+        newValue = -100;
+      }
       newValue = 255 + newValue;
+    } else {
+      newValue += 40;
+      if (newValue > 100) {
+        newValue = 100;
+      }
     }
 
     return newValue;

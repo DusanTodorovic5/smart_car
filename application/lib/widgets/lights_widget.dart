@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:application/classes/self_driving_car_icons_icons.dart';
 import 'package:application/classes/websocket.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class _LightsWidgetState extends State<LightsWidget> {
   bool left_turn_signal = false;
   bool right_turn_signal = false;
   bool all_turn_signal = false;
+  bool beam_lights = false;
 
   Color left_turn_signal_color = Colors.amber;
   Color right_turn_signal_color = Colors.amber;
@@ -64,28 +66,49 @@ class _LightsWidgetState extends State<LightsWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-          icon: CircleAvatar(
-            backgroundColor: const Color.fromARGB(99, 255, 255, 255),
-            child: Icon(
-              Icons.arrow_circle_left_outlined,
-              color: left_turn_signal || all_turn_signal
-                  ? left_turn_signal_color
-                  : Colors.black,
+        Row(
+          children: [
+            IconButton(
+              icon: CircleAvatar(
+                backgroundColor: const Color.fromARGB(99, 255, 255, 255),
+                child: Icon(
+                  Icons.arrow_circle_left_outlined,
+                  color: left_turn_signal || all_turn_signal
+                      ? left_turn_signal_color
+                      : Colors.black,
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  if (left_turn_signal && !all_turn_signal) {
+                    left_turn_signal = false;
+                  } else {
+                    left_turn_signal = true;
+                    all_turn_signal = false;
+                    right_turn_signal = false;
+                  }
+                });
+                sendLights();
+              },
             ),
-          ),
-          onPressed: () {
-            setState(() {
-              if (left_turn_signal && !all_turn_signal) {
-                left_turn_signal = false;
-              } else {
-                left_turn_signal = true;
-                all_turn_signal = false;
-                right_turn_signal = false;
-              }
-            });
-            sendLights();
-          },
+            IconButton(
+              icon: CircleAvatar(
+                backgroundColor: const Color.fromARGB(99, 255, 255, 255),
+                child: Icon(
+                  beam_lights
+                      ? SelfDrivingCarIcons.beamlights
+                      : SelfDrivingCarIcons.beamlightsoff,
+                  color: Colors.black,
+                ),
+              ),
+              onPressed: () {
+                setState(() {
+                  beam_lights = !beam_lights;
+                });
+                sendLights();
+              },
+            ),
+          ],
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -94,7 +117,7 @@ class _LightsWidgetState extends State<LightsWidget> {
               icon: CircleAvatar(
                 backgroundColor: const Color.fromARGB(50, 255, 255, 255),
                 child: Icon(
-                  Icons.compare_arrows,
+                  SelfDrivingCarIcons.hazard,
                   color: all_turn_signal ? Colors.amber : Colors.black,
                 ),
               ),
@@ -117,7 +140,9 @@ class _LightsWidgetState extends State<LightsWidget> {
               icon: CircleAvatar(
                 backgroundColor: const Color.fromARGB(50, 255, 255, 255),
                 child: Icon(
-                  automatic_lights ? Icons.lightbulb : Icons.ac_unit,
+                  automatic_lights
+                      ? SelfDrivingCarIcons.autolights
+                      : SelfDrivingCarIcons.manuallights,
                 ),
               ),
               onPressed: () {
@@ -161,8 +186,8 @@ class _LightsWidgetState extends State<LightsWidget> {
       "type": 3,
       "left_dir_light": left_turn_signal,
       "right_dir_light": right_turn_signal,
-      "front_light": false,
-      "auto_lights": automatic_lights
+      "front_light": beam_lights,
+      "auto_lights": automatic_lights,
     }.toString());
   }
 }

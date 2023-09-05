@@ -1,5 +1,10 @@
+import 'dart:ui';
+import 'package:application/classes/ip_address.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:async';
+import 'dart:convert';
 
 class VideoPlayerWidget extends StatefulWidget {
   @override
@@ -21,17 +26,36 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         },
       ),
     )
-    ..loadRequest(Uri.parse('http://192.168.100.14'));
+    ..loadRequest(Uri.parse(IPAddress.camera_ip));
+
+  // Timer? frameCaptureTimer;
+  var scr = GlobalKey();
+
   @override
   void initState() {
     super.initState();
+    // frameCaptureTimer = Timer.periodic(
+    //   const Duration(seconds: 1),
+    //   (timer) async {
+    //     await takeScreenShot();
+    //   },
+    // );
   }
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 800.0 / 600.0,
-      child: WebViewWidget(controller: controller),
+    return RepaintBoundary(
+      key: scr,
+      child: AspectRatio(
+        aspectRatio: 800.0 / 600.0,
+        child: WebViewWidget(controller: controller),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    // frameCaptureTimer?.cancel();
+    super.dispose();
   }
 }
