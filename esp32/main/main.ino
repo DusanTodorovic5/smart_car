@@ -1,4 +1,3 @@
-
 #include <WiFi.h>
 #include <WiFiServer.h>
 #include <WiFiClient.h>
@@ -84,6 +83,7 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t leng
 void setup() {
   Serial.begin(115200);
   delay(1000);
+
   initCamera();
   state = READY;
 }
