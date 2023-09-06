@@ -12,5 +12,7 @@ uint8_t engine_direction = FORWARD_DIRECTION;
 
 void change_speed(int intensity, int direction);
 void change_direction(int intensity, int direction);
+uint8_t light_sensor_check();
+
 
 #endif

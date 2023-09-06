@@ -33,13 +33,6 @@ ISR(TIMER1_COMPA_vect) {
     digitalWrite(RIGHT_LIGHT_GPIO, right_direction_lights ? !digitalRead(RIGHT_LIGHT_GPIO) : LOW);
 }
 
-uint8_t light_sensor_check()
-{
-    uint32_t val = analogRead(LIGHT_SENSOR);
-
-    return val < LIGHT_SENSOR_TRESHOLD;
-}
-
 void setup()
 {
     noInterrupts();
