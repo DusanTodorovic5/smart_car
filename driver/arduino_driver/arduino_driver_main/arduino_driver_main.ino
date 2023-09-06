@@ -1,7 +1,5 @@
 #include "main.h"
 
-char rcvBuf[100];
-
 ISR(TIMER1_COMPA_vect) {
     digitalWrite(LEFT_LIGHT_GPIO, left_direction_lights ?  !digitalRead(LEFT_LIGHT_GPIO) : LOW);
     digitalWrite(RIGHT_LIGHT_GPIO, right_direction_lights ? !digitalRead(RIGHT_LIGHT_GPIO) : LOW);

@@ -4,6 +4,8 @@
 #include "pin_config.h"
 #include "messages.h"
 
+char rcvBuf[100];
+
 volatile uint8_t right_direction_lights = 0;
 volatile uint8_t left_direction_lights = 0;
 uint8_t auto_lights = 0;
