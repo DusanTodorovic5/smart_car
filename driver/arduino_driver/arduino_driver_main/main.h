@@ -3,7 +3,6 @@
 
 #include "messages.h"
 
-
 #define FORWARD_DIRECTION 0
 #define BACKWARDS_DIRECTION 1
 #define LEFT_DIRECTION 0
@@ -34,6 +33,12 @@
 
 #define TX_GPIO 1
 #define RX_GPIO 0
+
+volatile uint8_t right_direction_lights = 0;
+volatile uint8_t left_direction_lights = 0;
+uint8_t auto_lights = 0;
+uint8_t lights = 0;
+uint8_t engine_direction = FORWARD_DIRECTION;
 
 void change_speed(int intensity, int direction);
 void change_direction(int intensity, int direction);

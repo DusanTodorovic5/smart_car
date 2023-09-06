@@ -1,11 +1,5 @@
 #include "main.h"
 
-volatile uint8_t right_direction_lights = 0;
-volatile uint8_t left_direction_lights = 0;
-uint8_t auto_lights = 0;
-uint8_t lights = 0;
-uint8_t engine_direction = FORWARD_DIRECTION;
-
 char rcvBuf[100];
 
 int scalePercentToDutyCycle(int intensity)
