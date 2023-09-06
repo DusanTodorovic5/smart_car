@@ -1,3 +1,8 @@
+int scalePercentToDutyCycle(int intensity)
+{
+    return (intensity / 100.0) * COUNTER_PERIOD;
+}
+
 void change_speed(int intensity, int direction)
 {
     intensity = scalePercentToDutyCycle(intensity);

@@ -2,32 +2,6 @@
 
 char rcvBuf[100];
 
-int scalePercentToDutyCycle(int intensity)
-{
-    return (intensity / 100.0) * COUNTER_PERIOD;
-}
-
-float front_distance_check() {
-  static int numTicks;
-  static float distance;
-  static long duration;
-
-  numTicks = 0;
-  digitalWrite(TRIGGER_PIN, LOW);
-  delayMicroseconds(2);
-
-  digitalWrite(TRIGGER_PIN, HIGH);
-
-  delayMicroseconds(10);
-  digitalWrite(TRIGGER_PIN, LOW);
-
-  duration = pulseIn(ECHO_PIN, HIGH);
-
-  distance = duration / 29 / 2;
-
-  return distance;
-}
-
 ISR(TIMER1_COMPA_vect) {
     digitalWrite(LEFT_LIGHT_GPIO, left_direction_lights ?  !digitalRead(LEFT_LIGHT_GPIO) : LOW);
     digitalWrite(RIGHT_LIGHT_GPIO, right_direction_lights ? !digitalRead(RIGHT_LIGHT_GPIO) : LOW);
