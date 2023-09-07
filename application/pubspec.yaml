@@ -1,16 +1,19 @@
-name: application
+name: smart_car_controller
 description: Application for controlling the smart car
+
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  ffi: ^1.1.2
+  image_picker: ^0.8.2
+  image: ^3.0.1
   fluttericon: ^2.0.0
   flutter_joystick: ^0.0.3
   web_socket_channel: ^2.4.0
@@ -21,7 +24,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_opencv:
+    path: ../ffi_opencv_plugin
 
 flutter:
   uses-material-design: true

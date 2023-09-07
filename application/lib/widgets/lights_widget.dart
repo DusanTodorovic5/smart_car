@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:application/classes/self_driving_car_icons_icons.dart';
-import 'package:application/classes/websocket.dart';
+import '../classes/self_driving_car_icons_icons.dart';
+import '../classes/websocket.dart';
 import 'package:flutter/material.dart';
 
 class LightsWidget extends StatefulWidget {

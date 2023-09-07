@@ -1,10 +1,12 @@
-import 'package:application/classes/ip_address.dart';
-import 'package:application/classes/self_driving_car_icons_icons.dart';
-import 'package:application/classes/websocket.dart';
-import 'package:application/pages/bluetooth_manager.dart';
-import 'package:application/widgets/lights_widget.dart';
-import 'package:application/widgets/video_player.dart';
-import 'package:application/widgets/wifi_connect.dart';
+import 'package:smart_car_controller/pages/image_processing_test.dart';
+
+import '../classes/ip_address.dart';
+import '../classes/self_driving_car_icons_icons.dart';
+import '../classes/websocket.dart';
+import '../pages/bluetooth_manager.dart';
+import '../widgets/lights_widget.dart';
+import '../widgets/video_player.dart';
+import '../widgets/wifi_connect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
@@ -32,6 +34,8 @@ class _LandingPageState extends State<LandingPage> {
   double lastYDir = 0.0;
 
   late Timer dirTimer;
+
+  late VideoPlayerWidget? player;
 
   @override
   void initState() {
@@ -77,6 +81,7 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    player = VideoPlayerWidget();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: createAppBar(),
@@ -84,7 +89,7 @@ class _LandingPageState extends State<LandingPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          VideoPlayerWidget(),
+          player!,
           Positioned(
             top: AppBar().preferredSize.height +
                 MediaQuery.of(context).viewPadding.top,
@@ -242,6 +247,29 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
               onTap: showReconnectDialog,
+            ),
+            ListTile(
+              title: const Row(
+                children: [
+                  Icon(Icons.add_a_photo_sharp),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text('Test Image Processing'),
+                ],
+              ),
+              onTap: () => player?.requestScreenshot().then(
+                (image) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageProcessingTestPage(
+                        imageParam: image,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

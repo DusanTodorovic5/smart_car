@@ -5,8 +5,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 
-// import './helpers/LineChart.dart';
-
 class MainPage extends StatefulWidget {
   @override
   _MainPage createState() => new _MainPage();
