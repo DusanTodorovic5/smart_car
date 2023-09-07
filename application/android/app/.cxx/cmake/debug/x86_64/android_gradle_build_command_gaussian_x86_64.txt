@@ -1,7 +1,0 @@
-Executable : C:\Users\Duke\AppData\Local\Android\sdk\cmake\3.10.2.4988404\bin\ninja.exe
-arguments : 
--C
-D:\smart_car\application\android\app\.cxx\cmake\debug\x86_64
-gaussian
-jvmArgs : 
-

@@ -1,3 +1,0 @@
-D:/smart_car/application/android/app/.cxx/cmake/debug/x86/CMakeFiles/gaussian.dir
-D:/smart_car/application/android/app/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
-D:/smart_car/application/android/app/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir

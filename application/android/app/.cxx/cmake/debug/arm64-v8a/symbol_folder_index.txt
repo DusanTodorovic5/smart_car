@@ -1,1 +1,0 @@
-D:\smart_car\application\build\app\intermediates\cmake\debug\obj\arm64-v8a

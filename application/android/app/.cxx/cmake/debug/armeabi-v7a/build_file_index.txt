@@ -1,1 +1,0 @@
-D:\smart_car\application\android\app\CMakeLists.txt
