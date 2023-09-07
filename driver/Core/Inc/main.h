@@ -41,7 +41,8 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+extern uint8_t right_direction_lights;
+extern uint8_t left_direction_lights;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -61,6 +62,12 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define left_dir_light_Pin GPIO_PIN_5
 #define left_dir_light_GPIO_Port GPIOE
+#define back_sensor_input_Pin GPIO_PIN_0
+#define back_sensor_input_GPIO_Port GPIOC
+#define front_sensor_output_Pin GPIO_PIN_1
+#define front_sensor_output_GPIO_Port GPIOC
+#define front_sensor_input_Pin GPIO_PIN_2
+#define front_sensor_input_GPIO_Port GPIOC
 #define input4_Pin GPIO_PIN_3
 #define input4_GPIO_Port GPIOC
 #define light_sensor_Pin GPIO_PIN_3
@@ -81,6 +88,8 @@ void Error_Handler(void);
 #define motor_pwm1_GPIO_Port GPIOE
 #define motor_pwm2_Pin GPIO_PIN_13
 #define motor_pwm2_GPIO_Port GPIOE
+#define back_sensor_output_Pin GPIO_PIN_3
+#define back_sensor_output_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
 // extern uint8_t right_direction_lights;

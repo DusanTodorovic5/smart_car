@@ -45,6 +45,7 @@
 ADC_HandleTypeDef hadc1;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim5;
 
 UART_HandleTypeDef huart4;
@@ -60,6 +61,7 @@ static void MX_TIM1_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_UART4_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
   // Engine
 
@@ -78,8 +80,86 @@ char rcvBuf[100];
 
 #define LIGHT_SENSOR_TRESHOLD 120
 
-uint8_t right_direction_lights = 1;
-uint8_t left_direction_lights = 1;
+/* 2.8*0.0343/2 */
+#define SPEED_OF_SOUND 0.04802
+
+uint8_t right_direction_lights = 0;
+uint8_t left_direction_lights = 0;
+uint8_t engine_direction = FORWARD_DIRECTION;
+
+void usDelay(uint32_t sec) {
+  if (sec < 2) {
+    sec = 2;
+  }
+
+  TIM5->ARR = sec - 1;
+  TIM5->EGR = 1;
+  TIM5->SR &= ~1;
+  TIM5->CR1 |= 1;
+  while ((TIM5->SR & 0x0001) != 1);
+  TIM5->SR &= ~(0x0001);
+}
+
+float front_distance_check_sensor() {
+    static int numTicks;
+    static float distance;
+    numTicks = 0;
+
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_RESET);
+    usDelay(3);
+
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_SET);
+    usDelay(10);
+    HAL_GPIO_WritePin(front_sensor_output_GPIO_Port, front_sensor_output_Pin, GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(front_sensor_input_GPIO_Port, front_sensor_input_Pin) == GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(front_sensor_input_GPIO_Port, front_sensor_input_Pin) == GPIO_PIN_SET) {
+      ++numTicks;
+      usDelay(2);
+    }
+
+    // sleep_duration = sleep_scaled(numTicks);
+
+    distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
+		
+		//5. Print to UART terminal for debugging
+		// sprintf(uartBuf, "Front Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+    return distance;
+}
+
+float rear_distance_check_sensor() {
+    static int numTicks;
+    static float distance;
+    numTicks = 0;
+
+    
+    HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_RESET);
+    usDelay(3);
+
+    HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_SET);
+    usDelay(10);
+    HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(back_sensor_input_GPIO_Port, back_sensor_input_Pin) == GPIO_PIN_RESET);
+
+    while (HAL_GPIO_ReadPin(back_sensor_input_GPIO_Port, back_sensor_input_Pin) == GPIO_PIN_SET) {
+      ++numTicks;
+      usDelay(2);
+    }
+
+    // sleep_duration = sleep_scaled(numTicks);
+
+    distance = (numTicks + 0.0f) * SPEED_OF_SOUND;
+		
+		//5. Print to UART terminal for debugging
+		// sprintf(uartBuf, "Rear Distance (cm)  = %d \r\nFront NUM TICKS: %d \r\n", (int)(distance*10),(int)numTicks);
+		// HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+    return distance;
+}
 
 int scalePercentToDutyCycle(int intensity) {
     return (intensity / 100.0) * COUNTER_PERIOD;
@@ -93,10 +173,12 @@ void change_speed(int intensity, int direction) {
         case FORWARD_DIRECTION:
             HAL_GPIO_WritePin(input1_GPIO_Port, input1_Pin , GPIO_PIN_RESET);
             HAL_GPIO_WritePin(input2_GPIO_Port, input2_Pin , GPIO_PIN_SET);
+            engine_direction = FORWARD_DIRECTION;
             break;
         case BACKWARDS_DIRECTION:
             HAL_GPIO_WritePin(input2_GPIO_Port, input2_Pin , GPIO_PIN_RESET);
             HAL_GPIO_WritePin(input1_GPIO_Port, input1_Pin , GPIO_PIN_SET);
+            engine_direction = BACKWARDS_DIRECTION;
             break;
         default:
             __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
@@ -198,27 +280,30 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-    HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(right_dir_light_GPIO_Port, right_dir_light_Pin, GPIO_PIN_SET);
   MX_TIM1_Init();
   MX_TIM5_Init();
   MX_UART4_Init();
   MX_ADC1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2); 
-    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_GPIO_WritePin(stop_lights_GPIO_Port, stop_lights_Pin, GPIO_PIN_SET);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2); 
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, 0);
+  __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, 0);
 
-    uint8_t auto_lights = 0;
-    uint8_t lights = 0;
+  uint8_t auto_lights = 0;
+  uint8_t lights = 0;
 
 
-    sprintf(uartBuf, "Started!");
+  sprintf(uartBuf, "Started!");
 	HAL_UART_Transmit(&huart4, (uint8_t *)uartBuf, strlen(uartBuf), 100);
+
+  if (HAL_TIM_Base_Start_IT(&htim3) != HAL_OK) {
+    /* Starting Error */
+    Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -240,9 +325,17 @@ int main(void)
       voltage_engine_message* msg = (voltage_engine_message *) rcvBuf;
       
       if (msg->voltage > 100) {
-        change_speed(255 - msg->voltage, FORWARD_DIRECTION);
+        if (front_distance_check_sensor() > 10) {
+            change_speed(255 - msg->voltage, FORWARD_DIRECTION);
+        } else {
+            change_speed(0, FORWARD_DIRECTION);
+        }
       } else {
-        change_speed(msg->voltage, BACKWARDS_DIRECTION);
+        if (rear_distance_check_sensor() > 10) {
+          change_speed(msg->voltage, BACKWARDS_DIRECTION);
+        } else {
+          change_speed(0, BACKWARDS_DIRECTION);
+        }
       }
 
       if (msg->voltage == 0) {
@@ -294,6 +387,13 @@ int main(void)
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_SET);
     } else {
       HAL_GPIO_WritePin(lights_GPIO_Port, lights_Pin, GPIO_PIN_RESET);
+    }
+
+    if (front_distance_check_sensor() < 10 && engine_direction == FORWARD_DIRECTION) {
+      change_speed(0, FORWARD_DIRECTION);
+    }
+    else if (rear_distance_check_sensor() < 10 && engine_direction == BACKWARDS_DIRECTION) {
+      change_speed(0, BACKWARDS_DIRECTION);
     }
   }
   /* USER CODE END 3 */
@@ -472,6 +572,51 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 6399;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 10000;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
   * @brief TIM5 Initialization Function
   * @param None
   * @retval None
@@ -565,18 +710,22 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(left_dir_light_GPIO_Port, left_dir_light_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, input4_Pin|input2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, front_sensor_output_Pin|input4_Pin|input2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, input1_Pin|lights_Pin|stop_lights_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, right_dir_light_Pin|input3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(back_sensor_output_GPIO_Port, back_sensor_output_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : left_dir_light_Pin */
   GPIO_InitStruct.Pin = left_dir_light_Pin;
@@ -585,8 +734,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(left_dir_light_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : input4_Pin input2_Pin */
-  GPIO_InitStruct.Pin = input4_Pin|input2_Pin;
+  /*Configure GPIO pins : back_sensor_input_Pin front_sensor_input_Pin */
+  GPIO_InitStruct.Pin = back_sensor_input_Pin|front_sensor_input_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : front_sensor_output_Pin input4_Pin input2_Pin */
+  GPIO_InitStruct.Pin = front_sensor_output_Pin|input4_Pin|input2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -605,6 +760,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : back_sensor_output_Pin */
+  GPIO_InitStruct.Pin = back_sensor_output_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(back_sensor_output_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
