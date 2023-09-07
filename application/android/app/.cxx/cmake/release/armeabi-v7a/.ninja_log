@@ -1,0 +1,5 @@
+# ninja log v5
+0	1560	1627646217	CMakeFiles/gaussian.dir/Users/adityasingh/Desktop/Codes/Experimental/opencv_flutter_ffi/lib/opencv-cpp/gaussian.cpp.o	858b82e3b4ab0408
+1561	1616	1627646217	/Users/adityasingh/Desktop/Codes/Experimental/opencv_flutter_ffi/build/app/intermediates/cmake/release/obj/armeabi-v7a/libgaussian.so	3df3538a6e61a92e
+2	1661	1627648358	CMakeFiles/gaussian.dir/Users/adityasingh/Desktop/Codes/Experimental/opencv_flutter_ffi/lib/opencv-cpp/gaussian.cpp.o	858b82e3b4ab0408
+1661	1732	1627648358	/Users/adityasingh/Desktop/Codes/Experimental/opencv_flutter_ffi/build/app/intermediates/cmake/release/obj/armeabi-v7a/libgaussian.so	3df3538a6e61a92e

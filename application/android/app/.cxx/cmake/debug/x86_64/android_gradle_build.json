@@ -1,0 +1,42 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "D:\\smart_car\\application\\android\\app\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Duke\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "D:\\smart_car\\application\\android\\app\\.cxx\\cmake\\debug\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Duke\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "D:\\smart_car\\application\\android\\app\\.cxx\\cmake\\debug\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "gaussian-Debug-x86_64": {
+      "buildCommandComponents": [
+        "C:\\Users\\Duke\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\smart_car\\application\\android\\app\\.cxx\\cmake\\debug\\x86_64",
+        "gaussian"
+      ],
+      "buildType": "debug",
+      "abi": "x86_64",
+      "artifactName": "gaussian",
+      "output": "D:\\smart_car\\application\\build\\app\\intermediates\\cmake\\debug\\obj\\x86_64\\libgaussian.so",
+      "runtimeFiles": [
+        "D:\\smart_car\\application\\android\\src\\main\\jniLibs\\x86_64\\libopencv_java4.so"
+      ]
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
