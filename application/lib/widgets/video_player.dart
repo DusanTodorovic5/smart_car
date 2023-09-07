@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'dart:ui';
 import '../classes/ip_address.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,17 @@ import 'package:webview_flutter/webview_flutter.dart';
 class VideoPlayerWidget extends StatefulWidget {
   @override
   _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+
+  var scr = GlobalKey();
+
+  Future<Uint8List> requestScreenshot() async {
+    final boundary =
+        scr.currentContext!.findRenderObject() as RenderRepaintBoundary?;
+    final image = await boundary?.toImage();
+    final byteData = await image?.toByteData(format: ImageByteFormat.png);
+
+    return byteData!.buffer.asUint8List();
+  }
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
@@ -27,7 +39,6 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     ..loadRequest(Uri.parse(IPAddress.camera_ip));
 
   // Timer? frameCaptureTimer;
-  var scr = GlobalKey();
 
   @override
   void initState() {
@@ -43,7 +54,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
-      key: scr,
+      key: widget.scr,
       child: AspectRatio(
         aspectRatio: 800.0 / 600.0,
         child: WebViewWidget(controller: controller),

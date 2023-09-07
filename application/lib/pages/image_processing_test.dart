@@ -7,10 +7,12 @@ import 'package:flutter/services.dart' show Uint8List;
 import '../classes/opencv_facade.dart';
 
 class ImageProcessingTestPage extends StatefulWidget {
-  ImageProcessingTestPage({Key? key}) : super(key: key);
+  ImageProcessingTestPage({Key? key, imageParam}) : super(key: key);
   @override
   _ImageProcessingTestPageState createState() =>
       _ImageProcessingTestPageState();
+
+  Uint8List? imageParam;
 }
 
 typedef DetectLinesCVC = Int32 Function(
@@ -29,9 +31,26 @@ class _ImageProcessingTestPageState extends State<ImageProcessingTestPage> {
   final ImagePicker _picker = ImagePicker();
   final dylib = DynamicLibrary.open("libdetect_lines.so");
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    if (widget.imageParam != null) {
+      final facade = OpenCVFacade();
+
+      final imgWithAngle = facade.getAngleWithImage(
+        widget.imageParam!,
+      );
+
+      angle = imgWithAngle.angle;
+      image = imgWithAngle.image;
+    }
+  }
+
   int angle = 0;
 
-  Uint8List slika = Uint8List(0);
+  Uint8List image = Uint8List(0);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +76,7 @@ class _ImageProcessingTestPageState extends State<ImageProcessingTestPage> {
                 );
 
                 setState(() {
-                  slika = imgWithAngle.image;
+                  image = imgWithAngle.image;
                   angle = imgWithAngle.angle;
                 });
               },
@@ -65,7 +84,7 @@ class _ImageProcessingTestPageState extends State<ImageProcessingTestPage> {
             ),
             Expanded(
               child: Image.memory(
-                slika,
+                image,
                 fit: BoxFit.contain,
               ),
             ),

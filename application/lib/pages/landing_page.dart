@@ -35,6 +35,8 @@ class _LandingPageState extends State<LandingPage> {
 
   late Timer dirTimer;
 
+  late VideoPlayerWidget? player;
+
   @override
   void initState() {
     super.initState();
@@ -79,6 +81,7 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
+    player = VideoPlayerWidget();
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: createAppBar(),
@@ -86,7 +89,7 @@ class _LandingPageState extends State<LandingPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          VideoPlayerWidget(),
+          player!,
           Positioned(
             top: AppBar().preferredSize.height +
                 MediaQuery.of(context).viewPadding.top,
@@ -255,11 +258,17 @@ class _LandingPageState extends State<LandingPage> {
                   Text('Test Image Processing'),
                 ],
               ),
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ImageProcessingTestPage(),
-                ),
+              onTap: () => player?.requestScreenshot().then(
+                (image) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageProcessingTestPage(
+                        imageParam: image,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           ],
